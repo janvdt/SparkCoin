@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'database',
+			'host'      => 'http://146.185.135.165/',
+			'database'  => 'sparkcoin',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'database',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
