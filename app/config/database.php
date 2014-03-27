@@ -54,7 +54,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'http://146.185.135.165/',
+			'host'      => '146.185.135.165',
 			'database'  => 'sparkcoin',
 			'username'  => 'root',
 			'password'  => 'database',
