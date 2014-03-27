@@ -15,9 +15,17 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function index()
 	{
-		return View::make('hello');
+	
+
+		$img = Image::make('uploads/ing.jpg');
+		$img->crop(100, 100, 25, 25);
+		$img->blur(15);
+
+		$path = $img->dirname ."/". $img->basename;
+
+		return View::make('hello')->with('path',$path);
 	}
 
 }

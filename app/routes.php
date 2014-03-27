@@ -13,5 +13,13 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	$HomeController = new HomeController;
+
+
+	return $HomeController->index();
 });
+
+	Route::get('files', 'FileController@index');
+	Route::post('files', 'FileController@store');
+	Route::delete('files/{id}', 'FileController@destroy');
+	Route::post('images', 'ImageController@index');
