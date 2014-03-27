@@ -1740,7 +1740,7 @@ class ImageTest extends PHPUnit_Framework_Testcase
 
         // data-url encoding
         $data = Image::make('public/circle.png')->encode('data-url');
-        $encoded = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAChklEQVRo3uXavUscQRjH8c+t2MhhcUhiKolYiDFXCIKFNkoqrYL/gyT/UV4sTZ3CgI2SIhBBsJBwWKjEYCEptLmzSpFi5ny56Hm+nLdjvt3e7t4+v52ZnWee3xTcHyMYxiAG0I8SivF8FUc4xD72sI3KfTy8cMf7y5jAOMZu+R+b2MA6th5ayCSmMXPujd+VKlaxhm/tFjKKOcyiR3s4wRcs40erN3Xd4AHzeIMpdGsf3XiBl/G4cl9CnmABb+PgfShK8aUVsYvaXYQMxlZ4rXOU0YefOL6NkLqIVzrPUBSze5WYribdKS8i6jxHb/wA1FoVstDh7tSsZQr43oqQ+Tiw80pZyBAqzYSMxi5VyrEQeCakN7/rP2QNF8zF5ss7QzFWlwmZFGbsVJiNMf8jZFr70o520BNjviCkLCSAqTETYz8VMuH+stiHpBhjPxUynqAI52PPhJXdWMJCxjCSCcvT1BnOhOQwdQYzoVCQOgOZUO1Inf5M/vOqVihl0pw/Gilmj0AEwjxSfQQ6qpmwSEmdo0yoxabOYSYUlFNnPxOq4qmzlwlr39TZzoRqxGbCIjZRqc8jGwkL2eBsYbUuzfmkGmM/FbIlmCypsRpjv1BFWRNMllQ4iTHjYqXxF54KJksKfMan+kFj0riMnQRE7MRYXdYinNVSp3Iu5B2+NhNCmFeKYuErhyxhsfHHq/yRXcEhyltBewUf3MDoqQmeXZ/gFOWBNbzHwWUnm3mIx7FlenPQMitRxJUJ7nWu7rHg2RU6OGaWYnc6aHZRKz57TfDsjgSn6KGqLjvC12nRNR57q0LqVISU/08cN+3a/XAiTHYfNXxim/HfbqppJPltTpfR0Y1nfwGRl30LQuetpgAAAABJRU5ErkJggg==';
+        $encoded = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACrUlEQVRogeXav09TURjG8Q/XuBDCQIjiRCQMBLUDCQkDLBgnnAz/A9H/yB+MOjto4gJxMJGEhIGYhgGIGAfjAEthcnB4aYFrW9rb0vbE79b7o/d57rnnnPe87xnSPWYxgylMYgJjGDk/X8ExfuEIh9hDuRsPH+rw/hIWMI+5gv+xg21sYbeokKJGFrGMxy7eeKdUsIFNfGn35naNPMRTrGC43Ye1yBk+4gO+tXrTrTYesIrnWMLttqS1x208wKPz3y31oVaM3MEaXojO2yvGxEsbwQFOm118nZEp0QrPuiKtGCWM4ztOGl3UzEjVxJOuyirGtDBzoIGZRkbuGBwTVe5jVAwA/3xmjYys6e/n1IhpMdJ+zZ+oZ2RVdOxBpSQihCujWd7IQ/FJ9XJ0KsI9Ed78rh7Ichc8Fc036EwLrTUuG1kUM3YqrAjNuGpk2c2FHTfBsNCMCyMlEQCmxmOhvWZkQfei2F4yIrTXjMz3T0vHzBNGZhVfFA0Cc5jNxPI0dWYyERymzlQmEgWpM5mJbEfqTGQGP65qhbFMmvNHnpF80JgsmcgnpU4lE4uU1DnORC42dX5lIqGcOkeZyIqnzmEm1r6ps5eJbMROv5V0wA7K1Xlku59KOmSbi4XVljTnk4rQXjOyK4osqbHhvMp1OUTZFEWWVDgTmnE10/gDd0WRJQXe4131Rz5o/ID9nsopxr7QWiOf+63mUpd6Iqc4L/H58oF62fiyWKOUeiCoCG+xnj/YqD5yICpEg5bQ/oTX2ij0nIqa3bioFA0Cm3iFn/VONqshnoiWGdX/lvkkTDQMcK+r6p6Imt2Q/vWZt+JzqtsSVVqps5+Kmt2xqBT1KuuyL0anddfU2Glv50NZhPx/RL+5qd0PZ2KyeyM3xDbjv91Ukyf5bU716OvGs7+Rl30L8vF70gAAAABJRU5ErkJggg==';
         $this->assertEquals($data, $encoded);
     }
 
@@ -1788,6 +1788,112 @@ class ImageTest extends PHPUnit_Framework_Testcase
         $this->assertEquals('#ffa601', $img->pickColor(6, 6, 'hex'));
         $this->assertEquals('#ffa601', $img->pickColor(21, 21, 'hex'));
 
+        $img = Image::make('public/trim.png');
+        $img->trim('transparent');
+        $this->assertEquals($img->width, 50);
+        $this->assertEquals($img->height, 50);
+        $this->assertEquals('#00aef0', $img->pickColor(6, 6, 'hex'));
+        $this->assertEquals('#ffa601', $img->pickColor(21, 21, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', array('top', 'bottom'));
+        $this->assertEquals($img->width, 50);
+        $this->assertEquals($img->height, 28);
+        $this->assertEquals('#00aef0', $img->pickColor(6, 6, 'hex'));
+        $this->assertEquals('#f6a609', $img->pickColor(25, 0, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', array('left', 'right'));
+        $this->assertEquals($img->width, 28);
+        $this->assertEquals($img->height, 50);
+        $this->assertEquals('#f6a609', $img->pickColor(0, 24, 'hex'));
+        $this->assertEquals('#00aef0', $img->pickColor(27, 49, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', array('bottom', 'right'));
+        $this->assertEquals($img->width, 39);
+        $this->assertEquals($img->height, 39);
+        $this->assertEquals('#4eaca7', $img->pickColor(38, 20, 'hex'));
+        $this->assertEquals('#88aa71', $img->pickColor(28, 38, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', array('bottom', 'left'));
+        $this->assertEquals($img->width, 39);
+        $this->assertEquals($img->height, 39);
+        $this->assertEquals('#b8a844', $img->pickColor(0, 22, 'hex'));
+        $this->assertEquals('#b8a844', $img->pickColor(11, 11, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', array('top', 'left'));
+        $this->assertEquals($img->width, 39);
+        $this->assertEquals($img->height, 39);
+        $this->assertEquals('#f6a609', $img->pickColor(14, 0, 'hex'));
+        $this->assertEquals('#b8a844', $img->pickColor(0, 16, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', array('top', 'right'));
+        $this->assertEquals($img->width, 39);
+        $this->assertEquals($img->height, 39);
+        $this->assertEquals('#f6a609', $img->pickColor(24, 0, 'hex'));
+        $this->assertEquals('#b8a844', $img->pickColor(11, 11, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', array('top', 'right', 'bottom'));
+        $this->assertEquals($img->width, 39);
+        $this->assertEquals($img->height, 28);
+        $this->assertEquals('#f6a609', $img->pickColor(24, 0, 'hex'));
+        $this->assertEquals('#b8a844', $img->pickColor(11, 11, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', array('right', 'bottom', 'left'));
+        $this->assertEquals($img->width, 28);
+        $this->assertEquals($img->height, 39);
+        $this->assertEquals('#b8a844', $img->pickColor(0, 22, 'hex'));
+        $this->assertEquals('#b8a844', $img->pickColor(27, 27, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', array('bottom', 'left', 'top'));
+        $this->assertEquals($img->width, 39);
+        $this->assertEquals($img->height, 28);
+        $this->assertEquals('#f6a609', $img->pickColor(13, 0, 'hex'));
+        $this->assertEquals('#88aa71', $img->pickColor(0, 17, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', array('left', 'top', 'right'));
+        $this->assertEquals($img->width, 28);
+        $this->assertEquals($img->height, 39);
+        $this->assertEquals('#f6a609', $img->pickColor(13, 0, 'hex'));
+        $this->assertEquals('#ffa601', $img->pickColor(7, 7, 'hex'));
+        $this->assertEquals('#88aa71', $img->pickColor(0, 17, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', array('bottom'));
+        $this->assertEquals($img->width, 50);
+        $this->assertEquals($img->height, 39);
+        $this->assertEquals('#00aef0', $img->pickColor(6, 6, 'hex'));
+        $this->assertEquals('#f6a609', $img->pickColor(11, 24, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', array('right'));
+        $this->assertEquals($img->width, 39);
+        $this->assertEquals($img->height, 50);
+        $this->assertEquals('#00aef0', $img->pickColor(6, 6, 'hex'));
+        $this->assertEquals('#f6a609', $img->pickColor(11, 25, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('top-left', 'right');
+        $this->assertEquals($img->width, 39);
+        $this->assertEquals($img->height, 50);
+        $this->assertEquals('#00aef0', $img->pickColor(6, 6, 'hex'));
+        $this->assertEquals('#f6a609', $img->pickColor(11, 25, 'hex'));
+
+        $img = Image::make('public/trim.png');
+        $img->trim('bottom-right', 'right');
+        $this->assertEquals($img->width, 39);
+        $this->assertEquals($img->height, 50);
+        $this->assertEquals('#00aef0', $img->pickColor(6, 6, 'hex'));
+        $this->assertEquals('#f6a609', $img->pickColor(11, 25, 'hex'));
+
         $img = Image::make('public/mask1.png');
         $img->trim('bottom-right');
         $this->assertEquals($img->width, 17);
@@ -1809,34 +1915,6 @@ class ImageTest extends PHPUnit_Framework_Testcase
         $this->assertEquals('rgba(255, 255, 255, 0.72)', $img->pickColor(6, 6, 'rgba'));
         $this->assertEquals('rgba(0, 0, 0, 0.00)', $img->pickColor(19, 19, 'rgba'));
 
-        $img = Image::make('public/trim.png');
-        $img->trim('top-left', array('top', 'bottom'));
-        $this->assertEquals($img->width, 50);
-        $this->assertEquals($img->height, 28);
-        $this->assertEquals('#00aef0', $img->pickColor(6, 6, 'hex'));
-        $this->assertEquals('#f6a609', $img->pickColor(25, 0, 'hex'));
-
-        $img = Image::make('public/trim.png');
-        $img->trim('top-left', array('left', 'right'));
-        $this->assertEquals($img->width, 28);
-        $this->assertEquals($img->height, 50);
-        $this->assertEquals('#f6a609', $img->pickColor(0, 24, 'hex'));
-        $this->assertEquals('#00aef0', $img->pickColor(27, 49, 'hex'));
-
-        $img = Image::make('public/trim.png');
-        $img->trim('top-left', array('bottom'));
-        $this->assertEquals($img->width, 50);
-        $this->assertEquals($img->height, 39);
-        $this->assertEquals('#00aef0', $img->pickColor(6, 6, 'hex'));
-        $this->assertEquals('#f6a609', $img->pickColor(11, 24, 'hex'));
-
-        $img = Image::make('public/trim.png');
-        $img->trim('top-left', array('right'));
-        $this->assertEquals($img->width, 39);
-        $this->assertEquals($img->height, 50);
-        $this->assertEquals('#00aef0', $img->pickColor(6, 6, 'hex'));
-        $this->assertEquals('#f6a609', $img->pickColor(11, 25, 'hex'));
-
         $img = Image::make('public/mask2.png');
         $img->trim('transparent', array('TOP', 'BOTTOM'));
         $this->assertEquals($img->width, 32);
@@ -1849,12 +1927,16 @@ class ImageTest extends PHPUnit_Framework_Testcase
         $this->assertEquals($img->width, 16);
         $this->assertEquals($img->height, 16);
 
-        $img = Image::make('public/trim.png');
-        $img->trim('top-left', 'right');
-        $this->assertEquals($img->width, 39);
-        $this->assertEquals($img->height, 50);
-        $this->assertEquals('#00aef0', $img->pickColor(6, 6, 'hex'));
-        $this->assertEquals('#f6a609', $img->pickColor(11, 25, 'hex'));
+        // trim selfmade image
+        $img = Image::canvas(1, 1, '000000');
+        $img->resizeCanvas(25, 25, 'center', false, 'ffffff');
+        $this->assertEquals($img->width, 25);
+        $this->assertEquals($img->height, 25);
+        $this->assertEquals('#ffffff', $img->pickColor(0, 0, 'hex'));
+        $img->trim();
+        $this->assertEquals($img->width, 1);
+        $this->assertEquals($img->height, 1);
+        $this->assertEquals('#000000', $img->pickColor(0, 0, 'hex'));
     }
 
     public function testEncoded()
