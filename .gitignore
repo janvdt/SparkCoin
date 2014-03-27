@@ -10,6 +10,7 @@
 # Basset development collections
 /public/assets/compiled/public
 /public/assets/compiled/admin
+/vendor/autoload.php
 
 # Composer
 composer.phar
