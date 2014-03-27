@@ -35,7 +35,7 @@
 </head>
 <body>
 	<div class="welcome">
-		<img src="{{$path}}" width="200" height="200">
+		<img src="" width="200" height="200">
 		<h1>SYTYCC TEAM Ctrl+Z</h1>
 	</div>
 </body>
