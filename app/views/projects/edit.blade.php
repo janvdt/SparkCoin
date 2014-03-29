@@ -4,7 +4,7 @@
 
 @section('content')
 <div>
-	<h1>Create project</h1>
+	<h1>Edit project</h1>
 	<div>	
 		<ul>
 	        @foreach($errors->all() as $error)
@@ -49,7 +49,6 @@
  
 	<div>
 		{{Form::submit("Save changes")}}
-		{{Form::reset("Reset")}}
 	</div>
 	{{Form::close()}}
 </div>

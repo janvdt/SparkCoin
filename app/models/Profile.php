@@ -14,6 +14,11 @@ class Profile extends BaseModel {
 		return $this->hasOne('User','id');
 	}
 
+	public function comment()
+	{
+		return $this->hasMany('Comment');
+	}
+
 	public function image()
 	{
 		return $this->belongsTo('Image');
