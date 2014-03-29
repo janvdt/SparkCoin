@@ -58,7 +58,7 @@ return array(
 			'unix_socket'   => '/Applications/MAMP/tmp/mysql/mysql.sock',
 			'database'  => 'sparkcoin',
 			'username'  => 'root',
-			'password'  => 'foefsap',
+			'password'  => 'database',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
