@@ -1,5 +1,7 @@
 @extends('layout')
 
+@include('instance.header')
+
 @section('content')
 
 <div class="login-box">

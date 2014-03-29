@@ -18,14 +18,23 @@ Route::get('/', function()
 
 	return $HomeController->index();
 });
-
+	
+	Route::get('user/viewauthentication/', 'UserController@viewauthentication');
+	Route::post('user/validateauthentication/', 'UserController@validateauthentication');
 	Route::get('files', 'FileController@index');
 	Route::post('files', 'FileController@store');
 	Route::delete('files/{id}', 'FileController@destroy');
 	Route::post('images', 'ImageController@index');
 	Route::resource('user', 'UserController');
+	Route::resource('profile', 'ProfileController');
+
 
 Route::get('login', array('as' => 'login', function()
 {
 	return View::make('instance.login');
 }));
+
+Route::get('logout', function() {
+	Auth::logout();
+	return Redirect::to('/');
+});

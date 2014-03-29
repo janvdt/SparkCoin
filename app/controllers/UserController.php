@@ -29,7 +29,39 @@ class UserController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(
+				Input::all(),
+				array(
+					'email' => 'unique:users,email',
+					'firstname'  => 'required',
+					'lastname'  =>'required',
+					'password' => 'confirmed',
+					'password_confirmation'  => 'required', 
+				)
+			);
+	
+			if ($validator->fails())
+			{
+				return Redirect::back()
+					->withInput()
+					->withErrors($validator);
+			}
+
+		$user = new User;
+
+		$user->email = Input::get('email');
+
+		$user->firstname = Input::get('firstname');
+
+		$user->lastname = Input::get('lastname');
+
+		$user->status = 1; 
+
+		$user->password = Hash::make(Input::get('password'));
+
+		$user->save();
+
+		return View::make('user.profile.create')->with('user',$user);
 	}
 
 	/**
@@ -74,6 +106,30 @@ class UserController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function viewauthentication()
+	{
+		return View::make('instance.authentication');
+	}
+	public function validateauthentication()
+	{
+		$validator = Validator::make(
+				Input::all(),
+				array(
+					'txtIdentification' => 'required',
+				)
+			);
+	
+			if ($validator->fails())
+			{
+				return Redirect::back()
+					->withInput()
+					->withErrors($validator);
+			}
+
+
+		return View::make('user.create');
 	}
 
 }
