@@ -23,3 +23,9 @@ Route::get('/', function()
 	Route::post('files', 'FileController@store');
 	Route::delete('files/{id}', 'FileController@destroy');
 	Route::post('images', 'ImageController@index');
+	Route::resource('user', 'UserController');
+
+Route::get('login', array('as' => 'login', function()
+{
+	return View::make('instance.login');
+}));
