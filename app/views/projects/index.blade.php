@@ -7,7 +7,11 @@
 <div>
 	{{Form::open()}}
 	{{Form::label('sort','Sort by')}}
-	{{Form::select('sort', array('fundings' => 'Top rated', 'views' => 'Top viewed'), $type)}}
+	@if($type != null)
+		{{Form::select('sort', array('fundings' => 'Top rated', 'views' => 'Top viewed'), $type)}}
+	@else
+		{{Form::select('sort', array('fundings' => 'Top rated', 'views' => 'Top viewed'))}}
+	@endif
 	{{Form::close()}}
 	@foreach($projects as $project)
 	<div>

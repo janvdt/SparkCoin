@@ -10,7 +10,8 @@ class ProjectController extends \BaseController {
 	public function index()
 	{
 		$projects = Project::orderBy('created_at','DESC')->get();
-		return View::make('projects.index')->with('projects',$projects);
+		$type = null;
+		return View::make('projects.index')->with('projects',$projects)->with('type',$type);
 	}
 
 	/**
@@ -71,7 +72,8 @@ class ProjectController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$project = Project::find($id);
+		return View::make('projects.edit')->with('project', $project);
 	}
 
 	/**
@@ -82,7 +84,22 @@ class ProjectController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+		$validator = Validator::make($input, Project::$rules);
+		if($validator->passes()){
+			$project = Project::find($id);
+			$project->name = $input['name'];
+			$project->description = $input['description'];
+			$project->address = $input['address'];
+			$project->zipcode = $input['zipcode'];
+			$project->town = $input['town'];
+			$project->country = $input['country'];
+			$project->save();
+			return Redirect::to('projects/'.$id)->with('message','Your project was succesfully edited!.');
+		}
+		else{
+			return Redirect::to('projects/create')->with('message','Please correct the following errors.')->withErrors($validator)->withInput();
+		}
 	}
 
 	/**
