@@ -1,12 +1,15 @@
 <p>
 	<button class="btn" href="#select-image" role="button" data-toggle="modal">Select an image</button>
 	<button id="upload-image-btn" class="btn" href="#upload-image" role="button" data-toggle="modal">Upload an image</button>
+	
+ 
 </p>
 
 <span id="selected-image" class="help-block"></span>
-<input type="hidden" id="selected-image-input" name="image_id">
+<input type="text" id="selected-image-input" class="idimage" name="image_id">
 
 @section('footer')
+
 <!-- Modal file select -->
 <div id="select-image" class="modal hide" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header">
@@ -16,7 +19,7 @@
 
 	<div class="modal-body">
 		<div id="images-table">
-			@include('file.image.table')
+			
 		</div>
 
 		<div class="navbar-search pull-left">
@@ -99,7 +102,10 @@ $("#upload-image-form").ajaxForm({
 		}
 
 		// If the upload succeeded, set the chosen file's id and title.
-		setChosenImage(data.id, data.title);
+		//setChosenImage(data.id, data.title);
+		
+		$(".idimage").val(data.id);
+		console.log(data.id);
 
 		// Update the image select table.
 		$("#images-table").html(data.table);

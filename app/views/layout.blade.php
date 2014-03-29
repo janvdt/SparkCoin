@@ -10,6 +10,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.js"></script>
+	<script src="/assets/js/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/js/script.js"></script>
+	<script src="/assets/js/jquery.form.js"></script>
+	<link rel="stylesheet" href="/assets/js/bootstrap/css/bootstrap.min.css">
 
 	<!-- Info -->
 	<title>SparkCoin</title>
@@ -25,7 +30,7 @@
 		@section('file')
 
 		<footer class="site-footer">
-
+			@yield('footer')
 		</footer>
 	</div>
 	<script type="text/javascript">
