@@ -19,7 +19,7 @@ class Profile extends BaseModel {
 		return $this->belongsTo('Image');
 	}
 
-	public function imageAccount()
+	public function imageProfile()
 	{
 		return Account::find($this->image_id);
 	}
