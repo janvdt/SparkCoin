@@ -16,8 +16,11 @@
 
 <body>
 	<div class="container">
+		@if(Session::has('message'))
+			<p class="alert">{{ Session::get('message') }}</p>
+		@endif
 		@yield('content')
-		
+		@section('file')
 		<footer class="site-footer">
 
 		</footer>

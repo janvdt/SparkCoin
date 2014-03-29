@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddLocationToProjectTable' => $baseDir . '/app/database/migrations/2014_03_29_102846_add_location_to_project_table.php',
+    'AddTownAndCountryToProjectsTable' => $baseDir . '/app/database/migrations/2014_03_29_120651_add_town_and_country_to_projects_table.php',
     'AddViewsToProjectTable' => $baseDir . '/app/database/migrations/2014_03_29_112638_add_views_to_project_table.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'BaseModel' => $baseDir . '/app/models/BaseModel.php',
@@ -1040,6 +1041,8 @@ return array(
     'Predis\\Session\\SessionHandler' => $vendorDir . '/predis/predis/lib/Predis/Session/SessionHandler.php',
     'Predis\\Transaction\\AbortedMultiExecException' => $vendorDir . '/predis/predis/lib/Predis/Transaction/AbortedMultiExecException.php',
     'Predis\\Transaction\\MultiExecContext' => $vendorDir . '/predis/predis/lib/Predis/Transaction/MultiExecContext.php',
+    'Project' => $baseDir . '/app/models/Project.php',
+    'ProjectController' => $baseDir . '/app/controllers/ProjectController.php',
     'Psr\\Log\\AbstractLogger' => $vendorDir . '/psr/log/Psr/Log/AbstractLogger.php',
     'Psr\\Log\\InvalidArgumentException' => $vendorDir . '/psr/log/Psr/Log/InvalidArgumentException.php',
     'Psr\\Log\\LogLevel' => $vendorDir . '/psr/log/Psr/Log/LogLevel.php',
