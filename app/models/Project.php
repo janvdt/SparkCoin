@@ -16,6 +16,7 @@ class Project extends BaseModel {
     	return $this->belongsToMany('Profile','profile_projects','project_id','profile_id');
     }
 
+
     public function image()
 	{
 		return $this->belongsTo('Image');
@@ -24,6 +25,13 @@ class Project extends BaseModel {
 	public function imageable()
 	{
 		return $this->morphTo();
+	}
+
+
+
+	public function comments()
+    {
+		return $this->hasMany('Comment');
 	}
 
 }

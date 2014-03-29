@@ -520,18 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "/C/xampp/htdocs/SparkCoin/app/views/hello.blade.php",
+			"file": "/C/xampp/htdocs/SparkCoin/app/routes.php",
 			"settings":
 			{
-				"buffer_size": 669,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/xampp/htdocs/SparkCoin/app/controllers/HomeController.php",
-			"settings":
-			{
-				"buffer_size": 580,
+				"buffer_size": 1137,
 				"line_ending": "Windows"
 			}
 		}
@@ -563,6 +555,44 @@
 	},
 	"file_history":
 	[
+		"/C/xampp/htdocs/SparkCoin/app/models/Profile.php",
+		"/C/xampp/htdocs/SparkCoin/app/models/Project.php",
+		"/C/xampp/htdocs/SparkCoin/app/views/projects/show.blade.php",
+		"/C/xampp/htdocs/SparkCoin/app/controllers/ProjectController.php",
+		"/C/xampp/htdocs/SparkCoin/app/views/instance/login.blade.php",
+		"/C/xampp/htdocs/SparkCoin/app/views/file/page/upload.blade.php",
+		"/C/xampp/htdocs/SparkCoin/app/views/projects/create.blade.php",
+		"/C/xampp/htdocs/SparkCoin/app/views/layout.blade.php",
+		"/C/xampp/htdocs/SparkCoin/app/views/instance/header.blade.php",
+		"/C/xampp/htdocs/SparkCoin/app/views/projects/index.blade.php",
+		"/D/htdocs/Pitch-A-Tent/app/views/admin/_layouts/default.blade (2014_01_05 13_00_02 UTC).php",
+		"/D/htdocs/Pitch-A-Tent/app/views/admin/gardens/create.blade (2014_01_05 13_00_02 UTC).php",
+		"/C/xampp/htdocs/SparkCoin/composer.lock",
+		"/C/xampp/htdocs/SparkCoin/app/config/app.php",
+		"/C/xampp/htdocs/SparkCoin/composer.json",
+		"/D/htdocs/Pitch-A-Tent/composer (2014_01_05 13_00_02 UTC).json",
+		"/C/xampp/htdocs/contentcowboys/KVK/laravel/app/controllers/AgendaController.php",
+		"/C/xampp/htdocs/contentcowboys/KVK/laravel/app/views/cms/agenda/edit.blade.php",
+		"/C/xampp/htdocs/contentcowboys/KVK/laravel/app/views/layouts/admin.blade.php",
+		"/C/xampp/htdocs/contentcowboys/KVK/laravel/app/controllers/AdminVideoController.php",
+		"/C/xampp/htdocs/contentcowboys/KVK/laravel/app/views/cms/bv/create.blade.php",
+		"/C/xampp/htdocs/contentcowboys/KVK/laravel/app/views/cms/agenda/create.blade.php",
+		"/C/xampp/htdocs/contentcowboys/KVK/laravel/app/views/cms/bv/edit.blade.php",
+		"/C/xampp/htdocs/SparkCoin/app/database/migrations/2014_03_29_120651_add_town_and_country_to_projects_table.php",
+		"/C/xampp/htdocs/contentcowboys/pong/app/models/User.php",
+		"/C/xampp/htdocs/SparkCoin/app/views/instance/layout.blade.php",
+		"/C/xampp/htdocs/contentcowboys/pong/app/models/Match.php",
+		"/C/xampp/htdocs/SparkCoin/app/database/migrations/2014_03_29_112638_add_views_to_project_table.php",
+		"/C/xampp/htdocs/SparkCoin/app/database/migrations/2014_03_29_102846_add_location_to_project_table.php",
+		"/D/htdocs/Pitch-A-Tent/app/database/migrations/2013_10_31_150217_add_province_to_gardens_table (2014_01_05 13_00_02 UTC).php",
+		"/D/htdocs/Pitch-A-Tent/app/database/migrations/2013_10_09_100226_create_garden_table (2014_01_05 13_00_02 UTC).php",
+		"/D/htdocs/Pitch-A-Tent/app/database/migrations/2013_10_09_100208_create_gardenspots_table (2014_01_05 13_00_02 UTC).php",
+		"/C/xampp/htdocs/SparkCoin/app/views/hello.blade.php",
+		"/C/xampp/htdocs/SparkCoin/app/controllers/HomeController.php",
+		"/C/Users/Bart/Desktop/2014_03_27_140304_create_files_table.php",
+		"/C/Users/Bart/Desktop/2014_03_29_083013_create_all_tables.php",
+		"/C/xampp/htdocs/SparkCoin/app/config/database.php",
+		"/C/xampp/htdocs/SparkCoin/app/database/migrations/2014_03_29_083013_create_all_tables.php",
 		"/C/xampp/htdocs/SparkCoin/vendor/autoload.php",
 		"/C/xampp/htdocs/sparkcoin/app/views/hello.blade.php",
 		"/C/xampp/htdocs/sparkcoin/app/controllers/HomeController.php",
@@ -652,45 +682,7 @@
 		"/C/xampp/htdocs/playasport/laravel/app/views/sportkampen.blade.php",
 		"/C/xampp/htdocs/playasport/laravel/app/views/multimove.blade.php",
 		"/C/xampp/htdocs/playasport/laravel/app/views/home.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/fotos/index.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/layouts/main.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/routes.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/layouts/admin.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/public/js/script.js",
-		"/C/xampp/htdocs/playasport/laravel/app/views/contact.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/controllers/StageController.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/stages/create.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/programma/create.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/stages/edit.blade.php",
-		"/C/Users/Bart/AppData/Local/Temp/Rar$DIa0.453/stylesheet.css",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/kalender/index.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/locaties/edit.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/programma/edit.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/emails/auth/inschrijving.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/database/migrations/2014_02_15_181524_create_inschrijvingen_table.php",
-		"/C/xampp/htdocs/playasport/laravel/app/controllers/ProgrammaController.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/kalender.blade.php",
-		"/D/htdocs/Pitch-A-Tent/app/views/admin/booking/index.blade (2014_01_05 13_00_02 UTC).php",
-		"/D/htdocs/Pitch-A-Tent/app/views/admin/booking/show.blade (2014_01_05 13_00_02 UTC).php",
-		"/D/htdocs/Pitch-A-Tent/app/views/admin/messages/edit.blade (2014_01_05 13_00_02 UTC).php",
-		"/D/htdocs/Pitch-A-Tent/app/views/admin/booking/create.blade (2014_01_05 13_00_02 UTC).php",
-		"/D/htdocs/Pitch-A-Tent/app/views/admin/gardens/edit.blade (2014_01_05 13_00_02 UTC).php",
-		"/D/htdocs/Pitch-A-Tent/app/views/admin/booking/edit.blade (2014_01_05 13_00_02 UTC).php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/vragen.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/inschrijving/index.blade.php",
-		"/D/htdocs/Pitch-A-Tent/app/controllers/Admin/DashboardController (2014_01_05 13_00_02 UTC).php",
-		"/C/xampp/htdocs/playasport/laravel/app/controllers/AdminController.php",
-		"/C/xampp/htdocs/playasport/laravel/app/models/Locatie.php",
-		"/C/xampp/htdocs/playasport/laravel/app/models/Stage.php",
-		"/C/xampp/htdocs/playasport/laravel/app/models/Groep.php",
-		"/C/xampp/htdocs/playasport/laravel/app/models/Programma.php",
-		"/D/htdocs/Pitch-A-Tent/app/views/admin/dashboard/index.blade (2014_01_05 13_00_02 UTC).php",
-		"/D/htdocs/Pitch-A-Tent/app/models/Garden (2014_01_05 13_00_02 UTC).php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/groepen/create.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/groepen/edit.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/stage/create.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/views/admin/stage/edit.blade.php",
-		"/C/xampp/htdocs/playasport/laravel/app/controllers/LocationController.php"
+		"/C/xampp/htdocs/playasport/laravel/app/views/admin/fotos/index.blade.php"
 	],
 	"find":
 	{
@@ -710,6 +702,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"galery",
 			"descrip",
 			"descript",
 			"nav-icon",
@@ -836,8 +829,7 @@
 			"users",
 			"telefoon",
 			"voornaam",
-			"kalender",
-			"dashboard"
+			"kalender"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -855,61 +847,32 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/xampp/htdocs/SparkCoin/app/views/hello.blade.php",
+					"file": "/C/xampp/htdocs/SparkCoin/app/routes.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 669,
+						"buffer_size": 1137,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								582,
-								582
+								462,
+								462
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 518.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/xampp/htdocs/SparkCoin/app/controllers/HomeController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 580,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								574,
-								574
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 121.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -977,7 +940,7 @@
 		[
 			[
 				"",
-				"C:\\xampp\\htdocs\\contentcowboys\\KVK\\kvk.sublime-workspace"
+				"C:\\xampp\\htdocs\\sparkcoin\\sparkcoin.sublime-project"
 			]
 		],
 		"width": 380.0
