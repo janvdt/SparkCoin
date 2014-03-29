@@ -9,7 +9,7 @@ class ProjectController extends \BaseController {
 	 */
 	public function index()
 	{
-		$projects = Project::all();
+		$projects = Project::orderBy('created_at','DESC')->get();
 		return View::make('projects.index')->with('projects',$projects);
 	}
 
@@ -62,6 +62,8 @@ class ProjectController extends \BaseController {
 	public function show($id)
 	{
 		$project = Project::find($id);
+		$project->views += 1;
+		$project->save();
 		return View::make('projects.show')->with('project', $project);
 	}
 
@@ -96,6 +98,12 @@ class ProjectController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function sort($type)
+	{
+		$projects = Project::orderBy($type,'DESC')->get();
+		return View::make('projects.index')->with('projects',$projects)->with('type', $type);
 	}
 
 }
