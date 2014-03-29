@@ -28,17 +28,23 @@ Route::get('files', 'FileController@index');
 Route::post('files', 'FileController@store');
 Route::delete('files/{id}', 'FileController@destroy');
 
+
 Route::get('user/viewauthentication/', 'UserController@viewauthentication'); 
 Route::post('user/validateauthentication/', 'UserController@validateauthentication');
 Route::get('projects/sort/{type}','ProjectController@sort');
+Route::post('projects/projectsuccess/','ProjectController@projectSuccess');
 Route::get('files', 'FileController@index');
 Route::post('files', 'FileController@store');
 Route::delete('files/{id}', 'FileController@destroy');
+Route::get('profile/yourprogress/', 'ProfileController@yourProgress');
+Route::get('profile/showyours/', 'ProfileController@showYours');
+
 Route::post('images', 'ImageController@index');
 Route::resource('projects', 'ProjectController');
 Route::resource('user', 'UserController');
 Route::resource('comment', 'CommentController');
 Route::resource('profile', 'ProfileController');
+
 
 
 

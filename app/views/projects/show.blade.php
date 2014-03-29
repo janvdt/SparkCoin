@@ -7,9 +7,9 @@
 <div>
 	<div>
 		<h1>{{$project->name}}</h1>
-<<<<<<< HEAD
+
 		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
-=======
+
 		<img src="{{$project->image}}"/>
 		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
 		<div>{{$project->description}}</div>
@@ -41,7 +41,24 @@
 			{{Form::submit('Post comment')}}
 		</div>
 		{{Form::close()}}
->>>>>>> b6dfd66d5e239d9ac253a27e8277ee37c7f4c7ea
+
 	</div>
 </div>
+@stop
+
+@section('scripts')
+	@parent
+
+ $("#post").click(function(){ 
+	$.post('/post/fund/' + {{$post->id}},
+	function(data)
+	{
+		var likecount = {{count($post->likes)}}+1;
+		$('.likes2').empty();
+		counttext="<a class='btn btn-link btn-large likeref'><img src='/images/lightning.png' width='50'><span class='badge badge-inverse likevalue'>"+likecount+"</span><img src='/images/lightning.png' width='50'>";
+		$('.likes2').append(counttext);
+		$('#post').hide();
+	});
+});
+
 @stop
