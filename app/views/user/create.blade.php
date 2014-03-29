@@ -14,14 +14,14 @@
 
 			<form class="form-horizontal" method="POST" action="{{ URL::action('UserController@store')}}" >
 				<div class="">
-					<label class="control-label">E-mail </label>
+					<label class="">E-mail </label>
 					<div class="">
 						<input class="" type="text"  placeholder="Email" name="email">
 						<span class="help-inline">{{ $errors->first('email') }}</span>
 					</div>
 				</div>
 
-				<div class="control-group">
+				<div class="">
 					<label class="">First Name </label>
 					<div class="">
 						<input class="" type="text" id=""  placeholder="First Name" name="firstname">
@@ -40,7 +40,7 @@
 
 				<div class="">
 					<label class="">Password </label>
-					<div class="controls">
+					<div class="">
 						<input class="" type="password" name="password"  placeholder="">
 						<span class="help-inline">{{ $errors->first('password') }}</span>
 					</div>
@@ -48,7 +48,7 @@
 	
 				<div class="">
 					<label class="">Re-type password </label>
-					<div class="controls">
+					<div class="">
 						<input class="" type="password" name="password_confirmation"  placeholder="">
 						<span class="help-inline">{{ $errors->first('password_confirmation') }}</span>
 					</div>

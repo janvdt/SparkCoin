@@ -18,6 +18,16 @@ Route::get('/', function()
 
 	return $HomeController->index();
 });
+
+
+
+Route::post('images', 'ImageController@index');
+Route::resource('projects', 'ProjectController');
+Route::resource('user', 'UserController');
+Route::get('files', 'FileController@index');
+Route::post('files', 'FileController@store');
+Route::delete('files/{id}', 'FileController@destroy');
+
 Route::get('user/viewauthentication/', 'UserController@viewauthentication'); 
 Route::post('user/validateauthentication/', 'UserController@validateauthentication');
 Route::get('projects/sort/{type}','ProjectController@sort');
@@ -28,6 +38,8 @@ Route::post('images', 'ImageController@index');
 Route::resource('projects', 'ProjectController');
 Route::resource('user', 'UserController');
 Route::resource('comment', 'CommentController');
+Route::resource('profile', 'ProfileController');
+
 
 
 Route::get('login', array('as' => 'login', function()

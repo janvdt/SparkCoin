@@ -19,9 +19,13 @@
 		<img src="{{$project->image}}"/>
 		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
 		<div>{{$project->description}}</div>
+
+		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
+
 		<h3>{{$project->fundings}} fundings</h3>
 		<h3>{{$project->views}} views</h3>
 		<h3>Expires {{date('d F Y', strtotime($project->expire_date))}}</h3>
+
 	</div>
 	@endforeach
 </div>

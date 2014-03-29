@@ -17,8 +17,21 @@ class Project extends BaseModel {
     }
 
 
+    public function image()
+	{
+		return $this->belongsTo('Image');
+	}
+
+	public function imageable()
+	{
+		return $this->morphTo();
+	}
+
+
+
 	public function comments()
     {
 		return $this->hasMany('Comment');
 	}
+
 }

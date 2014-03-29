@@ -33,7 +33,73 @@
 
 	</div>
 	<div class="section register">
+		<form class="form-horizontal" method="POST" action="{{ URL::action('UserController@store')}}" >
+			<div class="">
+				<label class="">ING ID </label>
+				<div class="">
+					<input class="" type="text"  placeholder="ING ID" name="ingid">
+					<span class="help-inline">{{ $errors->first('ingid') }}</span>
+				</div>
+				</div>
+				<div class="">
+					<label class="">CARD ID </label>
+					<div class="">
+						<input class="" type="text"  placeholder="CARDID" name="cardid">
+						<span class="help-inline">{{ $errors->first('cardid') }}</span>
+					</div>
+				</div>
+				<div class="">
+					<label class="">E-mail </label>
+					<div class="">
+						<input class="" type="text"  placeholder="Email" name="email">
+						<span class="help-inline">{{ $errors->first('email') }}</span>
+					</div>
+				</div>
 
+				<div class="">
+					<label class="">First Name </label>
+					<div class="">
+						<input class="" type="text" id=""  placeholder="First Name" name="firstname">
+						<i class=''></i>
+						<span class="help-inline">{{ $errors->first('firstname') }}</span>
+					</div>
+				</div>
+
+				<div class="">
+					<label class="">Last Name </label>
+						<div class="">
+						<input class="" type="text"  placeholder="Last Name" name="lastname">
+						<span class="help-inline">{{ $errors->first('lastname') }}</span>
+					</div>
+				</div>
+
+				<div class="">
+					<label class="">Password </label>
+					<div class="">
+						<input class="" type="password" name="password"  placeholder="PASSWORD">
+						<span class="help-inline">{{ $errors->first('password') }}</span>
+					</div>
+				</div>
+	
+				<div class="">
+					<label class="">Re-type password </label>
+					<div class="">
+						<input class="" type="password" name="password_confirmation"  placeholder="VERIFY PASSWORD">
+						<span class="help-inline">{{ $errors->first('password_confirmation') }}</span>
+					</div>
+				</div>
+				<div class="">
+					<label class="">Re-type password </label>
+					<div class="">
+						<input class="" type="text"  placeholder="CARD READER CODE" name="cardreadercode">
+						<span class="help-inline">{{ $errors->first('cardreadercode') }}</span>
+					</div>
+				</div>
+
+				<div class="form-actions">
+					<button type="submit" class="btn btn-inverse">Create an Account</button>
+				</div>
+			</form>
 	</div>
 
 </body>
