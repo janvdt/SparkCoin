@@ -56,7 +56,7 @@
 @stop
 
 @section('scripts')
-	@parent
+
 
 // If the browser supports ajax file upload, show the upload button.
 if (window.FormData) {

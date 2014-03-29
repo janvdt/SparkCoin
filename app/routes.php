@@ -37,6 +37,7 @@ Route::post('images', 'ImageController@index');
 Route::resource('projects', 'ProjectController');
 Route::resource('user', 'UserController');
 Route::resource('comment', 'CommentController');
+Route::resource('profile', 'ProfileController');
 
 
 

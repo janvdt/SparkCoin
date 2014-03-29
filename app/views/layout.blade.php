@@ -33,7 +33,13 @@
 			@yield('footer')
 		</footer>
 	</div>
-	@yield('scripts')
+	<script type="text/javascript">
+$(document).ready(function(){
+
+@section('scripts')
+	@show
+});
+</script>
 </body>
 </html>
 

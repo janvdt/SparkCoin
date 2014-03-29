@@ -29,7 +29,26 @@ class ProfileController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+
+		$spark = new Spark;
+
+		$spark->value = 100;
+
+		$spark->save();
+
+		$user_id = Auth::user()->id;
+		$profileid = User::find($user_id)->profile_id;
+
+		$profile  = Profile::find($profileid);
+		$profile->description = Input::get('description');
+		$profile->image_id = Input::get('image_id');
+		
+		$profile->save();
+
+		
+		return Redirect::to('/projects');
+
+		
 	}
 
 	/**
