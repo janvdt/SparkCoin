@@ -19,7 +19,8 @@ Route::get('/', function()
 	return $HomeController->index();
 });
 
-	Route::get('files', 'FileController@index');
-	Route::post('files', 'FileController@store');
-	Route::delete('files/{id}', 'FileController@destroy');
-	Route::post('images', 'ImageController@index');
+Route::get('files', 'FileController@index');
+Route::post('files', 'FileController@store');
+Route::delete('files/{id}', 'FileController@destroy');
+Route::post('images', 'ImageController@index');
+Route::resource('projects', 'ProjectController');

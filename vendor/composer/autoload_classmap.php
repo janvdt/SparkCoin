@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddLocationToProjectTable' => $baseDir . '/app/database/migrations/2014_03_29_102846_add_location_to_project_table.php',
+    'AddViewsToProjectTable' => $baseDir . '/app/database/migrations/2014_03_29_112638_add_views_to_project_table.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'BaseModel' => $baseDir . '/app/models/BaseModel.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
