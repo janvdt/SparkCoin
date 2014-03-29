@@ -39,6 +39,7 @@ Route::resource('projects', 'ProjectController');
 Route::resource('user', 'UserController');
 Route::resource('comment', 'CommentController');
 Route::resource('profile', 'ProfileController');
+Route::controller('fund', 'FundController');
 
 
 

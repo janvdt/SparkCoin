@@ -16,6 +16,11 @@ class Project extends BaseModel {
     	return $this->belongsToMany('Profile','profile_projects','project_id','profile_id');
     }
 
+	public function funds()
+    {
+    	return $this->belongsToMany('Fund','project_funds','profile_id','project_id');
+    }
+
 
     public function image()
 	{

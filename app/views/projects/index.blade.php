@@ -25,20 +25,15 @@
 		<h3>{{$project->fundings}} fundings</h3>
 		<h3>{{$project->views}} views</h3>
 		<h3>Expires {{date('d F Y', strtotime($project->expire_date))}}</h3>
-
 	</div>
 	@endforeach
 </div>
 @stop
 
 @section('scripts')
-<script type="text/javascript">
 var projects = {{$projects}};
-	$(document).ready(function(){
-		$("#sort").change(function(e){
-			var type = $("#sort").val();
-			window.location.href = '/projects/sort/'+type;
-		});
-	});
-</script>
+$("#sort").change(function(e){
+	var type = $("#sort").val();
+	window.location.href = '/projects/sort/'+type;
+});
 @stop

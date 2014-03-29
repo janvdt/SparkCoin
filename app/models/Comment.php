@@ -12,4 +12,9 @@ class Comment extends BaseModel {
     {
 		return $this->belongsTo('Project');
     }
+    
+    public function profile()
+    {
+    	return $this->belongsTo('Profile');
+    }
 }

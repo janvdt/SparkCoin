@@ -30,11 +30,14 @@ class CommentController extends \BaseController {
 	public function store()
 	{
 		$input = Input::all();
+		$user = Auth::user();
+		$profile_id = Profile::find($user->profile_id)->id;
 		$validator = Validator::make($input, Comment::$rules);
 		if($validator->passes()){
 			$comment = New Comment;
 			$comment->project_id = $input['project_id'];
 			$comment->parent = 0;
+			$comment->profile_id = $profile_id;
 			$comment->body = $input['body'];
 			$comment->save();
 			return Redirect::to('projects/'.$comment->project_id)->with('message','Your comment was posted!.');

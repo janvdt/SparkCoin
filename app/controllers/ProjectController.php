@@ -44,7 +44,7 @@ class ProjectController extends \BaseController {
 
 			$project->image_id = Input::get('image_id') ? Input::get('image_id'): 0;
 
-			$project->expire_date = Carbon::now()->addMonths(1);
+			//$project->expire_date = Carbon::now()->addMonths(1);
 
 			$project->save();
 			return Redirect::to('projects/'.$project->id)->with('message','Your project was succesfully published!.')->with('project',$project);
