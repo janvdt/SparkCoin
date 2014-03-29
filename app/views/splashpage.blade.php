@@ -89,7 +89,7 @@
 					</div>
 				</div>
 				<div class="">
-					<label class="">Re-type password </label>
+					<label class="">Card Reader Code </label>
 					<div class="">
 						<input class="" type="text"  placeholder="CARD READER CODE" name="cardreadercode">
 						<span class="help-inline">{{ $errors->first('cardreadercode') }}</span>

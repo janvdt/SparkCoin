@@ -19,9 +19,9 @@
 		<img src="{{$project->image}}"/>
 		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
 		<div>{{$project->description}}</div>
-
+	@if($project->image != null)
 		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
-
+	@endif
 		<h3>{{$project->fundings}} fundings</h3>
 		<h3>{{$project->views}} views</h3>
 		<h3>Expires {{date('d F Y', strtotime($project->expire_date))}}</h3>

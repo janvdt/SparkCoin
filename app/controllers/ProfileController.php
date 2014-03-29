@@ -19,7 +19,7 @@ class ProfileController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('user..profile.create');
+		return View::make('user.profile.create');
 	}
 
 	/**

@@ -7,9 +7,9 @@
 <div>
 	<div>
 		<h1>{{$project->name}}</h1>
-<<<<<<< HEAD
+	@if($project->image != null)
 		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
-=======
+	@endif
 		<img src="{{$project->image}}"/>
 		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
 		<div>{{$project->description}}</div>
@@ -41,7 +41,6 @@
 			{{Form::submit('Post comment')}}
 		</div>
 		{{Form::close()}}
->>>>>>> b6dfd66d5e239d9ac253a27e8277ee37c7f4c7ea
 	</div>
 </div>
 @stop
