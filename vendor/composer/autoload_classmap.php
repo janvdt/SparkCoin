@@ -35,6 +35,7 @@ return array(
     'BrainSocket\\EventPublisherInterface' => $vendorDir . '/brainboxlabs/brain-socket/src/BrainSocket/EventPublisherInterface.php',
     'BrainSocket\\LaravelEventPublisher' => $vendorDir . '/brainboxlabs/brain-socket/src/BrainSocket/LaravelEventPublisher.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
+    'ChangeFundsTable' => $baseDir . '/app/database/migrations/2014_03_29_230341_change_funds_table.php',
     'ClassPreloader\\Application' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Application.php',
     'ClassPreloader\\ClassList' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/ClassList.php',
     'ClassPreloader\\ClassLoader' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/ClassLoader.php',

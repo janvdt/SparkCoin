@@ -68,7 +68,8 @@ class ProjectController extends \BaseController {
 		$project = Project::find($id);
 		$project->views += 1;
 		$project->save();
-		return View::make('projects.show')->with('project', $project);
+		$fund_total = Fund::find($project->fund_id)->total;
+		return View::make('projects.show')->with('project', $project)->with('fund_total',$fund_total);
 	}
 
 	public function showYours()
