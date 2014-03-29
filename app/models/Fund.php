@@ -8,4 +8,6 @@ class Fund extends BaseModel {
 	{
 		return $this->belongsToMany('Project','project_funds','profile_id','project_id');
 	}
+
+	
 }

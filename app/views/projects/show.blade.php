@@ -13,17 +13,40 @@
 
 
 		<h3>by Bart Moons</h3>
-		{{Form::open(array('action'=>'FundController@postFund', 'method'=>'post'))}}
-		{{Form::hidden('project_id',$project->id)}}
-		{{Form::label('value','Value to fund')}}
-		{{Form::text('value')}}
-		{{Form::submit('Fund this project')}}
-		{{Form::close()}}
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  			Fund This project!
+		</button>
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+			  <div class="modal-content">
+			    <div class="modal-header">
+			      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			      <h4 class="modal-title" id="myModalLabel">Yaay!!!!</h4>
+			    </div>
+			    <div class="modal-body">
+					{{Form::open(array('action'=>'FundController@postFund', 'method'=>'post','id' => 'place-fund-form', 'class' => 'form-horizontal'))}}
+					{{Form::hidden('project_id',$project->id)}}
+					{{Form::label('value','Value to fund')}}
+					{{Form::text('value')}}
+					<input type="text" id="projectid" class="projectid" name="projectid" value="{{$project->id}}">
+					
+					
+			    </div>
+			    <div class="modal-footer">
+					<button class="btn" data-dismiss="modal">Cancel</button>
+					<input class="btn btn-primary" type="submit" value="Place your sparks!!">
+			    </div>
+				</form>
+			  </div>
+			</div>
+		</div>
+		
 	@if($project->image != null)
 		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
 	@endif
 
-		<img src="{{$project->image}}"/>
+		
 		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
 		<div>{{$project->description}}</div>
 		<h3>{{$project->funds}} fundings</h3>
@@ -63,16 +86,18 @@
 @section('scripts')
 	@parent
 
- $("#post").click(function(){ 
-	$.post('/post/fund/' + {{$post->id}},
-	function(data)
-	{
-		var likecount = {{count($post->likes)}}+1;
-		$('.likes2').empty();
-		counttext="<a class='btn btn-link btn-large likeref'><img src='/images/lightning.png' width='50'><span class='badge badge-inverse likevalue'>"+likecount+"</span><img src='/images/lightning.png' width='50'>";
-		$('.likes2').append(counttext);
-		$('#post').hide();
-	});
+ // Ajax file upload for the file upload modal.
+$("#place-fund-form").ajaxForm({
+	data: { 'ajax': 'true' },
+	dataType: 'json',
+	success: function(data) {
+		
+		
+
+		console.log(data);
+
+		$("#place-fund-form").modal('hide');
+	}
 });
 
 @stop
