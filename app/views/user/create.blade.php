@@ -9,7 +9,7 @@
 		</div>
 		<div class="login-box">
 			<div class="regtitle">
-				<h2>Hi! ...</h2>
+				<h2>Hi! ING Customer</h2>
 			</div>
 
 			<form class="form-horizontal" method="POST" action="{{ URL::action('UserController@store')}}" >
@@ -30,29 +30,26 @@
 					</div>
 				</div>
 
-				<div class="control-group">
-					<label class="control-label">Last Name </label>
-						<div class="controls">
+				<div class="">
+					<label class="">Last Name </label>
+						<div class="">
 						<input class="" type="text"  placeholder="Last Name" name="lastname">
-						<i class='icon-certificate'></i>
 						<span class="help-inline">{{ $errors->first('lastname') }}</span>
 					</div>
 				</div>
 
-				<div class="control-group">
-					<label class="control-label">Password </label>
+				<div class="">
+					<label class="">Password </label>
 					<div class="controls">
 						<input class="" type="password" name="password"  placeholder="">
-						<i class='icon-certificate'></i>
 						<span class="help-inline">{{ $errors->first('password') }}</span>
 					</div>
 				</div>
 	
-				<div class="control-group">
-					<label class="control-label">Re-type password </label>
+				<div class="">
+					<label class="">Re-type password </label>
 					<div class="controls">
 						<input class="" type="password" name="password_confirmation"  placeholder="">
-						<i class='icon-certificate'></i>
 						<span class="help-inline">{{ $errors->first('password_confirmation') }}</span>
 					</div>
 				</div>

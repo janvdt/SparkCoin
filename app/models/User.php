@@ -39,6 +39,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->password;
 	}
 
+	public function profiles()
+	{
+		return $this->hasOne('Profile');
+	}
+
+	public function profileUser()
+	{
+		return Profile::find($this->profile_id);
+	}
+
 	/**
 	 * Get the e-mail address where password reminders are sent.
 	 *

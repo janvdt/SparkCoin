@@ -4,6 +4,6 @@
 
 
 	<div class="welcome">
-		<a href="{{ URL::route('login') }}">Login</a>
+		<a href="{{ URL::action('UserController@viewauthentication') }}">Login</a>
 	</div>
 

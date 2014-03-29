@@ -26,7 +26,13 @@ Route::post('images', 'ImageController@index');
 Route::resource('projects', 'ProjectController');
 Route::resource('user', 'UserController');
 
+
 Route::get('login', array('as' => 'login', function()
 {
 	return View::make('instance.login');
 }));
+
+Route::get('logout', function() {
+	Auth::logout();
+	return Redirect::to('/');
+});
