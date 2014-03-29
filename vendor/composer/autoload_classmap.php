@@ -11,6 +11,7 @@ return array(
     'AddViewsToProjectTable' => $baseDir . '/app/database/migrations/2014_03_29_112638_add_views_to_project_table.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'BaseModel' => $baseDir . '/app/models/BaseModel.php',
+    'Comment' => $baseDir . '/app/models/Comment.php',
     'CommentController' => $baseDir . '/app/controllers/CommentController.php',
     'CreateAllTables' => $baseDir . '/app/database/migrations/2014_03_29_083013_create_all_tables.php',
     'CreateFilesTable' => $baseDir . '/app/database/migrations/2014_03_27_140304_create_files_table.php',

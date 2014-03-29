@@ -26,6 +26,7 @@ Route::delete('files/{id}', 'FileController@destroy');
 Route::post('images', 'ImageController@index');
 Route::resource('projects', 'ProjectController');
 Route::resource('user', 'UserController');
+Route::resource('comment', 'CommentController');
 
 
 Route::get('login', array('as' => 'login', function()

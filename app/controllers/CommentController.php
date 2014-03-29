@@ -29,7 +29,20 @@ class CommentController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+		$validator = Validator::make($input, Comment::$rules);
+		if($validator->passes()){
+			$comment = New Comment;
+			$comment->project_id = $input['project_id'];
+			$comment->parent = 0;
+			$comment->body = $input['body'];
+			$comment->save();
+			return Redirect::to('projects/'.$comment->project_id)->with('message','Your comment was posted!.');
+		}
+		else{
+			return Redirect::to('projects/'.$input['project_id'])->with('message','Please correct the following errors.')->withErrors($validator)->withInput();
+		}
+
 	}
 
 	/**
