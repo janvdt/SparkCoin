@@ -1,0 +1,227 @@
+/*
+| --------------------------------------------------------------------------
+| Main SASS file
+| --------------------------------------------------------------------------
+|
+| Sets the layout and design for the entire website. Compiled to css/all.css
+| using this command in your terminal:
+| `sass -r sass-globbing  --watch sass/all.scss:css/all.css --style compressed`
+|
+| !!! IMPORTANT: This command requires the Globbing plugin for SASS (assuming
+| you've already installed SASS, haven't you?).
+|
+| @info https://github.com/chriseppstein/sass-globbing
+|
+*/
+	@import "_reset", "_colors", "_fonts", "_breakpoints";
+
+
+/* =========================================================================
+ * Variables
+ * ========================================================================= 
+ */
+ 	
+	
+
+/* =========================================================================
+ * Mixins
+ * =========================================================================
+ */
+	@mixin border-radius($radius) {
+		-webkit-border-radius: $radius;
+		-moz-border-radius: $radius;
+		-ms-border-radius: $radius;
+		-o-border-radius: $radius;
+		border-radius: $radius;
+	}
+
+	@mixin box-shadow($horiz, $vert, $blur, $spread, $color) {
+		-webkit-box-shadow: $horiz $vert $blur $spread $color;
+		-moz-box-shadow: $horiz $vert $blur $spread $color;
+		box-shadow: $horiz $vert $blur $spread $color;
+	}
+
+	@mixin text-shadow($horiz, $vert, $blur, $color) {
+		text-shadow: $horiz $vert $blur $color;
+		-moz-text-shadow: $horiz $vert $blur $color;
+		-webkit-text-shadow: $horiz $vert $blur $color;
+	}
+
+	@mixin transform-rotate($degrees, $times) {
+		-webkit-transform: rotate($degrees); 
+		-moz-transform: rotate($degrees);
+		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=$times);
+	}
+
+	@mixin transition( $trans ) { // attr sec ease
+		-o-transition: $trans;
+		-ms-transition: $trans;
+		-moz-transition: $trans;
+		-webkit-transition: $trans;
+		transition: $trans;
+	}
+
+	@mixin column-width( $width ) {
+		-webkit-column-width: $width;
+		-moz-column-width: $width;
+		-o-column-width: $width;
+		-ms-column-width: $width;
+		column-width: $width;
+	}
+
+	@mixin column-break-inside( $break ) {
+		-webkit-column-break-inside: $break;
+		-moz-column-break-inside: $break;
+		-o-column-break-inside: $break;
+		-ms-column-break-inside: $break;
+		column-break-inside: $break;
+	}
+
+
+/* =========================================================================
+ * Global sections & tags
+ * =========================================================================
+ */
+ 	::selection {
+		background: $red; /* Safari */
+	}
+	::-moz-selection {
+		background: $red; /* Firefox */
+	}
+
+
+ 	/*
+ 	 * Structural ---------------------------------------------------------
+ 	 */
+	 	body {
+	 		
+	 	}
+
+	 	nav {
+	 		
+	 	}
+
+	 	hr {
+	 		
+	 	}
+
+ 	/*
+ 	 * Text ---------------------------------------------------------------
+ 	 */
+	 	h1, h2, h3 {
+	 		
+	 	}
+
+	 	h1 {
+	 		
+	 	}
+	 	h2 {
+	 		
+	 	}
+	 	h3 {
+	 		
+	 	}
+
+	 	p {
+	 		
+	 	}
+
+	 	a {
+	 		
+	 		&:hover {
+
+	 		}
+	 	}
+
+	 	span {
+	 		
+	 	}
+
+
+ 	/*
+ 	 * Forms --------------------------------------------------------------
+ 	 */
+	 	input[type=submit] {
+	 		
+	 	}
+
+	 	.btn {
+	 		outline: none;
+	 		-webkit-appearance: none;
+
+	 		&:hover {
+	 			
+	 		}
+	 	}
+
+	 	.txt-input {
+	 		outline: none;
+	 		-webkit-appearance: none;
+
+	 		&:focus {
+	 			
+	 		} 
+	 	}
+
+
+/* =========================================================================
+ * Classes
+ * =========================================================================
+ */
+ 	/*
+ 	 * Globals ------------------------------------------------------------
+ 	 */
+	 	.clear {
+			clear: both;
+		}
+		.left {
+			float: left;
+		}
+		.right {
+			float: right;
+		}
+
+		.container {
+	 		
+	 	}
+
+ 	/*
+ 	 * Specifics ----------------------------------------------------------
+ 	 */
+	 	.notify {
+			
+		}
+
+
+/* =========================================================================
+ * Content ID's
+ * =========================================================================
+ */
+ 	#content {
+ 		
+ 	}
+
+
+
+/* =========================================================================
+ * Import specific stylesheets
+ * =========================================================================
+ *
+ * !!! IMPORTANT: The wildcard functionality used in this section requires
+ * the Globbing plugin for SASS. Check the comment at the top of this file.
+ *
+ */
+	/*
+	 * Plugins ------------------------------------------------------------
+	 */
+ 		@import "plugins/*";
+
+	/*
+	 * Pages --------------------------------------------------------------
+	 */
+ 		@import "pages/*";
+
+	/*
+	 * Models ------------------------------------------------------------
+	 */
+ 		@import "models/*";
