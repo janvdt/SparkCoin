@@ -16,4 +16,9 @@ class Project extends BaseModel {
     	return $this->belongsToMany('Profile','profile_projects','project_id','profile_id');
     }
 
+
+	public function comments()
+    {
+		return $this->hasMany('Comment');
+	}
 }
