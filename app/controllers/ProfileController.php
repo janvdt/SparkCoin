@@ -59,7 +59,31 @@ class ProfileController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$user = Auth::user();
+		$profile = Profile::find($user->profile_id);
+		$projects = Project::where('profile_id',$profile->id)->take(3)->orderBy('fundings','asc')->get();
+
+		return View::make('profile.show')
+			->with('profile',$profile)
+			->with('user',$user)
+			->with('projects',$projects);
+
+	}
+
+	public function showYours()
+	{
+		$profile_id = Auth::User()->profile_id;
+		$projects = Project::where('profile_id',$profile_id)->get();
+		return View::make('profile.ownprojects')->with('projects', $projects);
+	}
+
+	public function yourProgress()
+	{
+		$profile_id = Auth::User()->profile_id;
+		$profile = Profile::find($profile_id);
+		
+		return View::make('profile.dashboard.managespark')->with('profile',$profile);
+
 	}
 
 	/**

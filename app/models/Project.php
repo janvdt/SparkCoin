@@ -27,6 +27,8 @@ class Project extends BaseModel {
 		return $this->belongsTo('Image');
 	}
 
+	
+
 	public function imageable()
 	{
 		return $this->morphTo();

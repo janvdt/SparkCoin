@@ -42,6 +42,9 @@ class ProjectController extends \BaseController {
 			$project->town = $input['town'];
 			$project->country = $input['country'];
 
+			$user = User::find(Auth::user()->id);
+			$project->profile_id = $user->profile_id;
+
 			$project->image_id = Input::get('image_id') ? Input::get('image_id'): 0;
 
 			//$project->expire_date = Carbon::now()->addMonths(1);
@@ -67,6 +70,13 @@ class ProjectController extends \BaseController {
 		$project->save();
 		$fund_total = Fund::find($project->fund_id)->total;
 		return View::make('projects.show')->with('project', $project)->with('fund_total',$fund_total);
+	}
+
+	public function showYours()
+	{
+		$profile_id = Auth::User()->profile_id;
+		$project = Project::where('profile_id',$profile_id)->get();
+		return View::make('projects.show')->with('project', $project);
 	}
 
 	/**

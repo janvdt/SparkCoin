@@ -7,6 +7,11 @@
 <div>
 	<div>
 		<h1>{{$project->name}}</h1>
+
+
+		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
+
+
 		<h3>by Bart Moons</h3>
 		{{Form::open(array('action'=>'FundController@postFund', 'method'=>'post'))}}
 		{{Form::hidden('project_id',$project->id)}}
@@ -17,6 +22,7 @@
 	@if($project->image != null)
 		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
 	@endif
+
 		<img src="{{$project->image}}"/>
 		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
 		<div>{{$project->description}}</div>
@@ -49,6 +55,24 @@
 			{{Form::submit('Post comment')}}
 		</div>
 		{{Form::close()}}
+
 	</div>
 </div>
+@stop
+
+@section('scripts')
+	@parent
+
+ $("#post").click(function(){ 
+	$.post('/post/fund/' + {{$post->id}},
+	function(data)
+	{
+		var likecount = {{count($post->likes)}}+1;
+		$('.likes2').empty();
+		counttext="<a class='btn btn-link btn-large likeref'><img src='/images/lightning.png' width='50'><span class='badge badge-inverse likevalue'>"+likecount+"</span><img src='/images/lightning.png' width='50'>";
+		$('.likes2').append(counttext);
+		$('#post').hide();
+	});
+});
+
 @stop

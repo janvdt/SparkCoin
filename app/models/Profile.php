@@ -29,6 +29,11 @@ class Profile extends BaseModel {
 		return Account::find($this->image_id);
 	}
 
+	public function spark()
+	{
+		return $this->belongsTo('Spark');
+	}
+
 	public function getImagePathname($size = 'thumb')
 	{
 		// If an image was linked.
