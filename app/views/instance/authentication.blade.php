@@ -65,17 +65,16 @@
 </div>
 
 @section('scripts')
-	
-	$(".btncheck").click(function(){ 
-
+<script type="text/javascript">
+	$(".btncheck").click(function(e){
+		e.preventDefault();
 		$.ajax({
-			url:"/openlogin/rest/session?apikey=PLy844B0CxUIE56PvLz1T9IMGpTBAmKA",
-			dataType: "jsonp",
-			success: function(data){
-
-			console.log(data);
-		}
-			
+			url:"https://apisandbox.ingdirect.es/openlogin/rest/ticket?apikey=uBrswY63PXAt97uI4ZP5LB3GtPjHTsjq",
+			type: 'post',
+			success : function(data){
+				console.log(data);
+			}
+		});
 	});
-});
+</script>
 @stop

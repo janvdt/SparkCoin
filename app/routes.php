@@ -18,7 +18,8 @@ Route::get('/', function()
 
 	return $HomeController->index();
 });
-
+Route::get('user/viewauthentication/', 'UserController@viewauthentication'); 
+Route::post('user/validateauthentication/', 'UserController@validateauthentication');
 Route::get('files', 'FileController@index');
 Route::post('files', 'FileController@store');
 Route::delete('files/{id}', 'FileController@destroy');

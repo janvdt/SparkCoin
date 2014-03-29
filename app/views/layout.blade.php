@@ -28,12 +28,7 @@
 
 		</footer>
 	</div>
-	<script type="text/javascript">
-		$(document).ready(function(){
-		@section('scripts')
-		@show
-	});
-	</script>
+	@yield('scripts')
 </body>
 </html>
 
