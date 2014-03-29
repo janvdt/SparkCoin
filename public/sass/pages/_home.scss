@@ -1,0 +1,45 @@
+
+.navigation{
+	width:100%;
+	height:80px;
+
+	ul{
+		float:right;
+
+		li{
+			float:left;
+			padding-left: 30px;
+			padding-right:30px;
+			vertical-align: middle;
+			margin-top: 30px;
+
+			a{
+				text-decoration: none;
+				color: $black;
+				font-family: $oswald;
+				font-size: $ms;
+
+				&:hover{
+					color: $orange;
+				}
+
+			}
+		}
+	}
+}
+
+.content{
+	border: 1px solid $black;
+	height:100%;
+
+	h1{
+		text-align: center;
+		font-family: $oswald;
+		color: white;
+		font-weight:100;
+		font-size: $xl;
+		span{
+			font-weight:300;
+		}
+	}
+}
