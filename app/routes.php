@@ -20,6 +20,7 @@ Route::get('/', function()
 });
 Route::get('user/viewauthentication/', 'UserController@viewauthentication'); 
 Route::post('user/validateauthentication/', 'UserController@validateauthentication');
+Route::get('projects/sort/{type}','ProjectController@sort');
 Route::get('files', 'FileController@index');
 Route::post('files', 'FileController@store');
 Route::delete('files/{id}', 'FileController@destroy');

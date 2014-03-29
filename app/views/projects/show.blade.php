@@ -11,10 +11,11 @@
 		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
 		<div>{{$project->description}}</div>
 		<h3>{{$project->fundings}} fundings</h3>
+		<h3>{{$project->views}} views</h3>
 		<h3>Expires {{date('d F Y', strtotime($project->expire_date))}}</h3>
 	</div>
 	<div>
-		<h2>Comments</h2>
+		<h2><?php echo count($project->comments) ?> Comments</h2>
 		<img/>
 		@foreach($project->comments as $comment)
 			<div>{{$comment->profile_id}}</div>
