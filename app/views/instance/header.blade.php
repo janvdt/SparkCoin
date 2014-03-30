@@ -1,8 +1,8 @@
-<div class="navigation">
-	<div class="logo"></div>
+<div class="navigation2">
+	<div class="logo"><h1>SPARK</h1></div>
 	<ul>
-		<li>{{HTML::link('projects', 'All Projects')}}</li>
-		<li>{{HTML::link('projects/create', 'Create Project')}}</li>
-		<li><a href ="{{ URL::action('ProfileController@getDashboard') }}">Dashboard</a></li>
+		<li>{{HTML::link('projects', 'ALL PROJECTS')}}</li>
+		<li>{{HTML::link('projects/create', 'CREATE PROJECTS')}}</li>
+		<li><a href ="{{ URL::action('ProfileController@getDashboard') }}">DASHBOARD</a></li>
 	</ul>
 </div>
