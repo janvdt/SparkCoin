@@ -32,12 +32,7 @@ class HomeController extends BaseController {
 		    $user->email = Input::get('email');
 		    $user->password = Hash::make(Input::get('password'));
 		    $user->save();
-
 		    $password = $user->password;
-
-		    
-
-
 		    if (Auth::attempt(array('email'=> $user->email, 'password'=> $password))) {
 		    	return Redirect::to('profile/create')->with('message', 'You are succesfully registered!');
 		} else {
