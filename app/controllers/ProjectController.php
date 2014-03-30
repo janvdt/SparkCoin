@@ -66,7 +66,10 @@ class ProjectController extends \BaseController {
 			$project->town = $input['town'];
 			$project->country = $input['country'];
 			$project->imageable_type = 'Gallery';
-			$project->imageable_id = Input::get('gallery');
+			if(Input::get('gallery') != NULL)
+			{
+				$project->imageable_id = Input::get('gallery');
+			}
 
 			$user = User::find(Auth::user()->id);
 			$project->profile_id = $user->profile_id;

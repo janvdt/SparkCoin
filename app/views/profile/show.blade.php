@@ -3,6 +3,7 @@
 @include('instance.header')
 <div class="dashboard">
 	<h1>Good morning, <span>{{$user->firstname}}</span></h1>
+	<p>Number of Sparks {{$numbernotificationsspark}} </p>
 	<img src="">
 </div>
 @section('content')

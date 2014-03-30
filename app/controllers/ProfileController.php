@@ -59,11 +59,13 @@ class ProfileController extends \BaseController {
 		$user = Auth::user();
 		$profile = Profile::find($user->profile_id);
 		$projects = Project::where('profile_id',$profile->id)->take(3)->get();
+		$numbernotificationsspark =  Notification::where('user_id',Auth::user()->id)->where('type',3)->count();
 
 		return View::make('profile.show')
 			->with('profile',$profile)
 			->with('user',$user)
-			->with('projects',$projects);
+			->with('projects',$projects)
+			->with('numbernotificationsspark',$numbernotificationsspark);
 	}
 
 	public function showYours()
