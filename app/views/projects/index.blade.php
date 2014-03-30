@@ -16,7 +16,7 @@
 	@foreach($projects as $project)
 	<div>
 		<h1><a href="/projects/{{$project->id}}">{{$project->name}}</a></h1>
-		<img src="{{ asset(''.$project->image->getSize('thumb')->getPathname().'') }}"/>
+		
 		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
 		<div>{{$project->description}}</div>
 		@if($project->image != NULL)

@@ -64,6 +64,17 @@
 		</div>
 	</div>
 
+	<div class="">
+		<label class="" for="inputPageTitle">Choose gallery</label>
+		<div class="">
+			<select name="gallery">
+				@foreach($galleries as $gallery)
+					<option value='{{$gallery->id}}'>{{$gallery->title}}</option>
+				@endforeach
+			</select>
+		</div>
+	</div>
+
 
  
 	<div>
