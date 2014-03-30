@@ -24,6 +24,7 @@
 		@endif
 	</div>
 	<div class="yourfundings">
+		
 
 	</div>
 	<div class="commentsonyourprojects">

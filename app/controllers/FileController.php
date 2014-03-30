@@ -28,7 +28,7 @@ class FileController extends BaseController {
 		);
 
 		// Validation rules.
-		$rules = array('file' => 'required|max:2048');
+		$rules = array('file' => 'required|max:10000');
 
 		// If the file needs to be an image.
 		if (Input::get('require_image')) {
