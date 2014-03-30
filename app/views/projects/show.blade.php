@@ -66,6 +66,7 @@
 									@endforeach
 								</ul>
 	</div>
+	@if($project->imageable_id != 0)
 	<div class="row">
 					<div class="span8">
 						<div id="myCarousel" class="carousel slide">
@@ -86,6 +87,7 @@
 					</div>
 				</div>
 	<div>
+	@endif
 		<h2><?php echo count($project->comments) ?> Comments</h2>
 		<img/>
 		@foreach($project->comments as $comment)
