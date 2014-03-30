@@ -54,6 +54,17 @@
 		<h3>{{$fund_total}} sparkcoins</h3>
 		<h3>{{$project->views}} views</h3>
 		<h3>Expires {{date('d F Y', strtotime($project->expire_date))}}</h3>
+		<h5>Documents:</h5>
+		<ul class="unstyled">
+									@foreach($project->documents as $document)
+										
+											
+												
+											
+											<li><a href="{{$document->path}}/{{$document->name}}">{{$document->title}}</a></li>
+										
+									@endforeach
+								</ul>
 	</div>
 	<div>
 		<h2><?php echo count($project->comments) ?> Comments</h2>

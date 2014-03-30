@@ -43,6 +43,7 @@ Route::resource('user', 'UserController');
 Route::resource('comment', 'CommentController');
 Route::resource('profile', 'ProfileController');
 Route::resource('databank', 'DatabankController');
+Route::resource('gallery', 'GalleryController');
 Route::post('fund/postfund','FundController@postFund');
 Route::post('document/storedocument', 'DocumentController@storeDocument');
 Route::post('documents/destroySelected', 'FileController@destroySelected');

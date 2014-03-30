@@ -6,7 +6,7 @@
 </p>
 
 <span id="selected-image" class="help-block"></span>
-<input type="text" id="selected-image-input" class="idimage" name="image_id">
+<input type="hidden" id="selected-image-input" class="idimage" name="image_id">
 
 @section('footer')
 

@@ -83,6 +83,7 @@ class FileController extends BaseController {
 			// Set imageable id and type.
 			$fileModel->imageable_id = $image->id;
 			$fileModel->imageable_type = 'Image';
+			$fileModel->created_by = Auth::user()->id;
 		}
 
 		// Else, it's probably a document.
