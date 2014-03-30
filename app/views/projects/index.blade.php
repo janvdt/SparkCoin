@@ -5,20 +5,20 @@
 @section('content')
 
 <div class="projects">
-	{{Form::open()}}
+<!-- 	{{Form::open()}}
 	{{Form::label('sort','Sort by')}}
 	@if($type != null)
 		{{Form::select('sort', array('fundings' => 'Top rated', 'views' => 'Top viewed'), $type)}}
 	@else
 		{{Form::select('sort', array('fundings' => 'Top rated', 'views' => 'Top viewed'))}}
 	@endif
-	{{Form::close()}}
+	{{Form::close()}} -->
 	@foreach($projects as $project)
 	<div>
 		<h1><a href="/projects/{{$project->id}}">{{$project->name}}</a></h1>
 		<img src="{{ asset(''.$project->image->getSize('thumb')->getPathname().'') }}"/>
-		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
-		<div>{{$project->description}}</div>
+<!-- 		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
+		<div>{{$project->description}}</div> -->
 		@if($project->image != NULL)
 		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
 		@endif
