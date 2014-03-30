@@ -104,19 +104,11 @@ class ProjectController extends \BaseController {
 		$project = Project::find($id);
 		$project->views += 1;
 		$project->save();
-
-
-		if($project->fund_id != 0){
-		$fund_total = Fund::find($project->fund_id)->total;
-		}else
-		{
+		$total = Fund::find($project->fund_id);
+		if($total->total <= 0 || $total->total == NULL){
 			$fund_total = 0;
 		}
-
-
-		if($project->fund_id == 0){
-			$fund_total = 0;
-		}
+<<<<<<< HEAD
 		else{
 			$fund_total = Fund::find($project->fund_id)->total;
 		}
@@ -124,6 +116,11 @@ class ProjectController extends \BaseController {
 
 
 		return View::make('projects.show')->with('project', $project)->with('fund_total',$fund_total);
+=======
+		$fund_total = $total;
+		$funders_total_kak = $fund_total['total'];
+		return View::make('projects.show')->with('project', $project)->with('fund_total',$funders_total_kak);
+>>>>>>> 1ee66c6047b84625cb306f0d4f1b1edb00b88c15
 	}
 
 	public function showYours()

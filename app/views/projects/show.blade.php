@@ -31,8 +31,15 @@
 <div>
 	<div>
 
+<<<<<<< HEAD
 
 		
+=======
+		<h3>by Bart Moons</h3>
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  			Fund This project!
+		</button>
+>>>>>>> 1ee66c6047b84625cb306f0d4f1b1edb00b88c15
 
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">

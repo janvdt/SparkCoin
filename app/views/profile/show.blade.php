@@ -22,7 +22,17 @@
 			@endforeach
 		@endif
 	</div>
+<<<<<<< HEAD
 	
+=======
+	<div class="yourfundings">
+		
+
+	</div>
+	<div class="commentsonyourprojects">
+
+	</div>
+>>>>>>> 1ee66c6047b84625cb306f0d4f1b1edb00b88c15
 
 
 
