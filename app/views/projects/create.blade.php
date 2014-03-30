@@ -22,14 +22,14 @@
 		{{Form::textarea('description')}}
 	</div>
 	<div>
-		{{Form::select('categories', array('amusement' => 'Amusement',
-										   'art' => 'Art', 
-										   'design' => 'Design',
-										   'education' => 'Education', 
-										   'fashion' => 'Fashion',
-										   'food' => 'Food',  
-										   'publishing' => 'Publishing',
-										   'technology' => 'Technology',))}}
+		{{Form::select('category', array('Amusement' => 'Amusement',
+										   'Art' => 'Art', 
+										   'Design' => 'Design',
+										   'Education' => 'Education', 
+										   'Fashion' => 'Fashion',
+										   'Food' => 'Food',  
+										   'Publishing' => 'Publishing',
+										   'Technology' => 'Technology',))}}
 	</div>
 	<div>
 		{{Form::label('address')}}

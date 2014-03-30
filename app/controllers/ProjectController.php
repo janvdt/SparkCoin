@@ -51,6 +51,7 @@ class ProjectController extends \BaseController {
 			$project = New Project;
 			$project->name = $input['name'];
 			$project->description = $input['description'];
+			$project->category = $input['category'];
 			$project->address = $input['address'];
 			$project->zipcode = $input['zipcode'];
 			$project->town = $input['town'];
@@ -124,6 +125,7 @@ class ProjectController extends \BaseController {
 			$project = Project::find($id);
 			$project->name = $input['name'];
 			$project->description = $input['description'];
+			$project->category = $input['category'];
 			$project->address = $input['address'];
 			$project->zipcode = $input['zipcode'];
 			$project->town = $input['town'];
