@@ -101,24 +101,13 @@ class ProjectController extends \BaseController {
 		$project = Project::find($id);
 		$project->views += 1;
 		$project->save();
-
-
-		if($project->fund_id != 0){
-		$fund_total = Fund::find($project->fund_id)->total;
-		}else
-		{
+		$total = Fund::find($project->fund_id);
+		if($total->total <= 0 || $total->total == NULL){
 			$fund_total = 0;
 		}
-
-
-		if($project->fund_id == 0){
-			$fund_total = 0;
-		}
-		else{
-			$fund_total = Fund::find($project->fund_id)->total;
-		}
-
-		return View::make('projects.show')->with('project', $project)->with('fund_total',$fund_total);
+		$fund_total = $total;
+		$funders_total_kak = $fund_total['total'];
+		return View::make('projects.show')->with('project', $project)->with('fund_total',$funders_total_kak);
 	}
 
 	public function showYours()

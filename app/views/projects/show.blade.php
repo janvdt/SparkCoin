@@ -8,10 +8,6 @@
 	<div>
 		<h1>{{$project->name}}</h1>
 
-
-		
-
-
 		<h3>by Bart Moons</h3>
 		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   			Fund This project!

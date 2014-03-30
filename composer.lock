@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "aa058f19939be76e6be42357ac079078",
+    "hash": "17801b87e87927653dab361aa165bf0f",
     "packages": [
         {
             "name": "brainboxlabs/brain-socket",
@@ -481,12 +481,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "f0f202be2924bb95e88b16e1cd027e97a5934ec3"
+                "reference": "ac7891d4ef7ad21d303c942f501c1a50039fd93a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/f0f202be2924bb95e88b16e1cd027e97a5934ec3",
-                "reference": "f0f202be2924bb95e88b16e1cd027e97a5934ec3",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/ac7891d4ef7ad21d303c942f501c1a50039fd93a",
+                "reference": "ac7891d4ef7ad21d303c942f501c1a50039fd93a",
                 "shasum": ""
             },
             "require": {
@@ -526,7 +526,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2014-03-29 11:10:32"
+            "time": "2014-03-30 09:36:20"
         },
         {
             "name": "ircmaxell/password-compat",

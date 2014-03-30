@@ -539,6 +539,7 @@ return array(
     'Intervention\\Image\\Exception\\InvalidImageResourceException' => $vendorDir . '/intervention/image/src/Intervention/Image/Exception/InvalidImageResourceException.php',
     'Intervention\\Image\\Exception\\InvalidImageTypeException' => $vendorDir . '/intervention/image/src/Intervention/Image/Exception/InvalidImageTypeException.php',
     'Intervention\\Image\\Exception\\OpacityOutOfBoundsException' => $vendorDir . '/intervention/image/src/Intervention/Image/Exception/OpacityOutOfBoundsException.php',
+    'Intervention\\Image\\Exception\\TrimToleranceOutOfBoundsException' => $vendorDir . '/intervention/image/src/Intervention/Image/Exception/TrimToleranceOutOfBoundsException.php',
     'Intervention\\Image\\Facades\\Image' => $vendorDir . '/intervention/image/src/Intervention/Image/Facades/Image.php',
     'Intervention\\Image\\Font' => $vendorDir . '/intervention/image/src/Intervention/Image/Font.php',
     'Intervention\\Image\\Image' => $vendorDir . '/intervention/image/src/Intervention/Image/Image.php',
