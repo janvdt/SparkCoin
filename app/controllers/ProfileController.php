@@ -61,7 +61,7 @@ class ProfileController extends \BaseController {
 	{
 		$user = Auth::user();
 		$profile = Profile::find($user->profile_id);
-		$projects = Project::where('profile_id',$profile->id)->take(3)->orderBy('fundings','asc')->get();
+		$projects = Project::where('profile_id',$profile->id)->take(3)->get();
 
 		return View::make('profile.show')
 			->with('profile',$profile)

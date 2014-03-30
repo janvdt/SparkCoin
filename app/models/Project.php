@@ -18,7 +18,7 @@ class Project extends BaseModel {
 
 	public function funds()
     {
-    	return $this->belongsToMany('Fund','project_funds','profile_id','project_id');
+    	return $this->belongsToMany('Fund','funds_projects','profile_id','project_id');
     }
 
 
@@ -27,8 +27,6 @@ class Project extends BaseModel {
 		return $this->belongsTo('Image');
 	}
 
-
-	
 
 	public function imageable()
 	{
@@ -40,6 +38,16 @@ class Project extends BaseModel {
 	public function comments()
     {
 		return $this->hasMany('Comment');
+	}
+
+	public function notifications()
+    {
+        return $this->hasMany('Notification');
+    }
+
+    public function documents()
+	{
+		return $this->belongsToMany('Document');
 	}
 
 }

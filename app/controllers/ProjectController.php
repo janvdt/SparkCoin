@@ -11,7 +11,21 @@ class ProjectController extends \BaseController {
 	{
 		$projects = Project::orderBy('created_at','DESC')->get();
 		$type = null;
-		return View::make('projects.index')->with('projects',$projects)->with('type',$type);
+		$arrayfunds = array();
+		foreach($projects as $project)
+		{
+			if($project->fund_id != 0){
+			$arrayfunds[$project->id] = Fund::find($project->fund_id)->total;
+		}
+		else
+		{
+			$arrayfunds[$project->id] = 0;
+		}
+		}
+
+		
+		
+		return View::make('projects.index')->with('projects',$projects)->with('type',$type)->with('arrayfunds',$arrayfunds);
 	}
 
 	/**
@@ -68,7 +82,12 @@ class ProjectController extends \BaseController {
 		$project = Project::find($id);
 		$project->views += 1;
 		$project->save();
+		if($project->fund_id != 0){
 		$fund_total = Fund::find($project->fund_id)->total;
+		}else
+		{
+			$fund_total = 0;
+		}
 		return View::make('projects.show')->with('project', $project)->with('fund_total',$fund_total);
 	}
 

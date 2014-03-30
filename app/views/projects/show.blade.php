@@ -9,7 +9,7 @@
 		<h1>{{$project->name}}</h1>
 
 
-		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
+		
 
 
 		<h3>by Bart Moons</h3>
@@ -29,7 +29,9 @@
 					{{Form::hidden('project_id',$project->id)}}
 					{{Form::label('value','Value to fund')}}
 					{{Form::text('value')}}
-					<input type="text" id="projectid" class="projectid" name="projectid" value="{{$project->id}}">
+					<input type="hidden" id="projectid" class="projectid" name="projectid" value="{{$project->id}}">
+
+
 					
 					
 			    </div>

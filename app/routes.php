@@ -38,13 +38,17 @@ Route::post('files', 'FileController@store');
 Route::delete('files/{id}', 'FileController@destroy');
 Route::get('profile/yourprogress/', 'ProfileController@yourProgress');
 Route::get('profile/showyours/', 'ProfileController@showYours');
-
+Route::resource('media', 'MediaController');
+Route::resource('document', 'DocumentController');
 Route::post('images', 'ImageController@index');
 Route::resource('projects', 'ProjectController');
 Route::resource('user', 'UserController');
 Route::resource('comment', 'CommentController');
 Route::resource('profile', 'ProfileController');
+Route::resource('databank', 'DatabankController');
 Route::post('fund/postfund','FundController@postFund');
+Route::post('document/storedocument', 'DocumentController@storeDocument');
+Route::post('documents/destroySelected', 'FileController@destroySelected');
 
 
 
