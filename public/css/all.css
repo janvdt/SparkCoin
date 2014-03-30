@@ -508,6 +508,55 @@ body {
   .up:hover {
     bottom: 6%; }
 
+.navigation2 {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  clear: both;
+  z-index: 1000; }
+  .navigation2 .logo {
+    margin-left: 30px;
+    margin-top: 8px;
+    width: 40px;
+    height: 70px;
+    float: left;
+    background: url(../img/splashscreen/logo.png) no-repeat;
+    background-size: contain; }
+    .navigation2 .logo h1 {
+      font-family: "Oswald", sans-serif;
+      font-weight: 700;
+      margin-left: 50px;
+      font-size: 40px;
+      letter-spacing: -3px;
+      margin-top: 15px; }
+  .navigation2 ul {
+    float: right; }
+    .navigation2 ul li {
+      float: left;
+      padding-left: 30px;
+      padding-right: 30px;
+      vertical-align: middle;
+      margin-top: 30px; }
+      .navigation2 ul li .triangle {
+        opacity: 0.7;
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid black;
+        display: none; }
+      .navigation2 ul li a {
+        position: relative;
+        text-decoration: none;
+        font-family: "Oswald", sans-serif;
+        font-size: 20px;
+        color: #222222; }
+        .navigation2 ul li a:hover {
+          color: #ff6600; }
+
 /*
  * Models ------------------------------------------------------------
  */
