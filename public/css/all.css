@@ -220,6 +220,53 @@ table {
 /*
  * Pages --------------------------------------------------------------
  */
+.container .create {
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  margin-bottom: 25px;
+  height: 100%; }
+  .container .create h1 {
+    font-family: "Oswald", sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    height: 100px; }
+  .container .create label {
+    margin-bottom: 5px;
+    margin-top: 7px; }
+  .container .create input {
+    border-radius: none;
+    width: 100%;
+    height: 25px; }
+  .container .create textarea {
+    width: 100%; }
+  .container .create select {
+    width: 100%; }
+  .container .create button {
+    float: left;
+    margin-right: 25px; }
+  .container .create .submit-btns input {
+    width: 40%;
+    margin-right: 2%;
+    margin-bottom: 25px;
+    float: left;
+    height: 40px; }
+  .container .create .submit-btns input:nth-child(2) {
+    float: right; }
+  .container .create h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px; }
+  .container .create .left {
+    float: left;
+    width: 500px; }
+  .container .create .right {
+    float: right;
+    width: 400px; }
+    .container .create .right h1 {
+      text-align: right; }
+
 body {
   -webkit-font-smoothing: antialiased; }
 
