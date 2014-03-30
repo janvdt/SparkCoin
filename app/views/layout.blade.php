@@ -15,6 +15,14 @@
 	<script src="/assets/js/script.js"></script>
 	<script src="/assets/js/jquery.form.js"></script>
 	<link rel="stylesheet" href="/assets/js/bootstrap/css/bootstrap.min.css">
+	{{-- META SETTINGS --}}
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+
+
+	
+	{{-- STYLESHEETS --}}
+	{{ HTML::style('http://fonts.googleapis.com/css?family=Oswald:400,300,700') }}
+	{{ HTML::style('css/all.css') }}
 
 	<!-- Info -->
 	<title>SparkCoin</title>

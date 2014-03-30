@@ -9,7 +9,7 @@ class ProjectController extends \BaseController {
 	 */
 	public function index()
 	{
-		$projects = Project::orderBy('created_at','DESC')->get();
+		$projects = Project::orderBy('created_at','DESC')->take(3)->get();
 		$type = null;
 		return View::make('projects.index')->with('projects',$projects)->with('type',$type);
 	}
@@ -68,7 +68,12 @@ class ProjectController extends \BaseController {
 		$project = Project::find($id);
 		$project->views += 1;
 		$project->save();
-		$fund_total = Fund::find($project->fund_id)->total;
+		if($project->fund_id == 0){
+			$fund_total = 0;
+		}
+		else{
+			$fund_total = Fund::find($project->fund_id)->total;
+		}
 		return View::make('projects.show')->with('project', $project)->with('fund_total',$fund_total);
 	}
 
