@@ -8,7 +8,7 @@
 
 <ul>
 	<li><a href="{{ URL::action('DocumentController@index') }}">Documents</a></li>
-	<li><a href="{{ URL::action('MediaController@index') }}">Media</a></li>
+	<li><a href="{{ URL::action('GalleryController@index') }}">Your Galleries</a></li>
 </ul>
 
 @stop
