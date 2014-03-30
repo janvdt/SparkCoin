@@ -2,7 +2,43 @@ body{
 	-webkit-font-smoothing: antialiased;
 
 }
-
+.progress-bar{
+	height:3px;
+	background-color: #a1a1a1;
+	width:100%;
+	position:relative;
+	margin-top:20px;
+	span{
+		background-color: $orange;
+		height:3px;
+		position: absolute;
+	}
+}
+.projects{
+	.single{
+		margin-bottom: 20px;
+		width: 30%;
+		float: left;
+		margin-right: 1%;
+		h1{
+			height: 50px;
+			padding:5px 10px 5px 10px;
+			background-color: $black;
+			text-align:center;
+			a:link{
+				font-family: $oswald;
+				font-weight:$thin;
+				color: $orange !important;
+				text-transform: uppercase;
+				line-height: 30px;
+				font-size: $s;
+			}
+			a:visited{
+				color: $orange !important;
+			}
+		}
+	}
+}
 .section{
 	.alert{
 		font-family: $oswald;

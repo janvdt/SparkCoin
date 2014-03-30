@@ -15,12 +15,12 @@ class ProjectController extends \BaseController {
 		foreach($projects as $project)
 		{
 			if($project->fund_id != 0){
-			$arrayfunds[$project->id] = Fund::find($project->fund_id)->total;
-		}
-		else
-		{
-			$arrayfunds[$project->id] = 0;
-		}
+				$arrayfunds[$project->id] = Fund::find($project->fund_id)->total;
+			}
+			else
+			{
+				$arrayfunds[$project->id] = 0;
+			}
 		}
 
 		
@@ -57,6 +57,7 @@ class ProjectController extends \BaseController {
 			$project = New Project;
 			$project->name = $input['name'];
 			$project->description = $input['description'];
+			$project->capital = $input['capital'];
 			$project->category = $input['category'];
 			$project->address = $input['address'];
 			$project->zipcode = $input['zipcode'];
@@ -147,6 +148,7 @@ class ProjectController extends \BaseController {
 			$project = Project::find($id);
 			$project->name = $input['name'];
 			$project->description = $input['description'];
+			$project->capital = $input['capital'];
 			$project->category = $input['category'];
 			$project->address = $input['address'];
 			$project->zipcode = $input['zipcode'];
@@ -174,7 +176,18 @@ class ProjectController extends \BaseController {
 	public function sort($type)
 	{
 		$projects = Project::orderBy($type,'DESC')->get();
-		return View::make('projects.index')->with('projects',$projects)->with('type', $type);
+		$arrayfunds = array();
+		foreach($projects as $project)
+		{
+			if($project->fund_id != 0){
+				$arrayfunds[$project->id] = Fund::find($project->fund_id)->total;
+			}
+			else
+			{
+				$arrayfunds[$project->id] = 0;
+			}
+		}
+		return View::make('projects.index')->with('projects',$projects)->with('type', $type)->with('arrayfunds', $arrayfunds);
 	}
 
 }

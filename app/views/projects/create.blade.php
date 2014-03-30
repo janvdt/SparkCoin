@@ -22,6 +22,7 @@
 		{{Form::textarea('description')}}
 	</div>
 	<div>
+		{{Form::label('category')}}
 		{{Form::select('category', array('Amusement' => 'Amusement',
 										   'Art' => 'Art', 
 										   'Design' => 'Design',
@@ -32,9 +33,13 @@
 										   'Technology' => 'Technology',))}}
 	</div>
 	<div>
+		{{Form::label('capital','Starting Capital needed')}}
+		{{Form::text('capital')}}
+	</div>
+	<div>
 		{{Form::label('address')}}
 		{{Form::text('address')}}
-	</div>	
+	</div>
 	<div>
 		{{Form::label('zipcode')}}
 		{{Form::text('zipcode')}}

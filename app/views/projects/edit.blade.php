@@ -20,6 +20,21 @@
 	<div>
 		{{Form::label('description')}}
 		{{Form::textarea('description')}}
+	</div>	
+	<div>
+		{{Form::label('category')}}
+		{{Form::select('category', array('Amusement' => 'Amusement',
+										   'Art' => 'Art', 
+										   'Design' => 'Design',
+										   'Education' => 'Education', 
+										   'Fashion' => 'Fashion',
+										   'Food' => 'Food',  
+										   'Publishing' => 'Publishing',
+										   'Technology' => 'Technology',))}}
+	</div>
+	<div>
+		{{Form::label('capital','Starting Capital needed')}}
+		{{Form::text('capital')}}
 	</div>
 	<div>
 		{{Form::label('address')}}

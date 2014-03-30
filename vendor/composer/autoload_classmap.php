@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddCapitalToProjectTable' => $baseDir . '/app/database/migrations/2014_03_30_053123_add_capital_to_project_table.php',
     'AddCategoriesColumnToProject' => $baseDir . '/app/database/migrations/2014_03_30_042845_add_categories_column_to_project.php',
     'AddFundingsTable' => $baseDir . '/app/database/migrations/2014_03_29_213230_add_fundings_table.php',
     'AddLocationToProjectTable' => $baseDir . '/app/database/migrations/2014_03_29_102846_add_location_to_project_table.php',
@@ -81,10 +82,6 @@ return array(
     'File_X509' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/X509.php',
     'Fund' => $baseDir . '/app/models/Fund.php',
     'FundController' => $baseDir . '/app/controllers/FundController.php',
-    'Galleries' => $baseDir . '/app/database/migrations/2014_03_30_045732_galleries.php',
-    'Gallery' => $baseDir . '/app/models/Gallery.php',
-    'GalleryController' => $baseDir . '/app/controllers/GalleryController.php',
-    'Galleryimage' => $baseDir . '/app/database/migrations/2014_03_30_045857_galleryimage.php',
     'Guzzle\\Common\\AbstractHasDispatcher' => $vendorDir . '/guzzle/common/Guzzle/Common/AbstractHasDispatcher.php',
     'Guzzle\\Common\\Collection' => $vendorDir . '/guzzle/common/Guzzle/Common/Collection.php',
     'Guzzle\\Common\\Event' => $vendorDir . '/guzzle/common/Guzzle/Common/Event.php',
