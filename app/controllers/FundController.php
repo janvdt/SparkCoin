@@ -26,61 +26,21 @@ class FundController extends \BaseController {
 				->with('new_file_error', true);
 		}
 
-		$project = Post::find($id);
+		$project = Project::find(Input::get('projectid'));
 
-		Like::insert(array('post_id' => $post->id,'user_id' => Auth::user()->id));
 
-		DB::table('posts')->where('id',$post->id)->increment('postlikes');
 		
-		Notification::insert(array('body' => "liked your post!",'user_id' => Auth::user()->id,'post_id' => $post->id,'post_creator' => $post->created_by,"type" => 3,'created_at' => date("Y-m-d H:i:s")));
+
+		DB::table('projects')->where('id',$project->id)->increment('total', Input::get('value'));
+
+		Notification::insert(array('body' => "Sparked your project!",'user_id' => Auth::user()->id,'project_id' => $project->id,'project_creator' => $project->profile_id,"type" => 3,'created_at' => date("Y-m-d H:i:s")));
 		
-		if($post->created_by != Auth::user()->id){
-		Notification::insert(array('body' => "liked a post!",'user_id' => Auth::user()->id,'post_id' => $post->id,'post_creator' => $post->created_by,'activity' => 1, 'type' => 3,'created_at' => date("Y-m-d H:i:s")));
+		if($project->profile_id != Auth::user()->profile_id){
+		Notification::insert(array('body' => "Sparked your project!",'user_id' => Auth::user()->id,'project_id' => $project->id,'project_creator' => $project->profile_id,"type" => 3,'created_at' => date("Y-m-d H:i:s")));
 		}
-
-		if(Auth::user())
-		{
-			if($post->created_by != Auth::user()->id)
-			{	
-				$user = User::find($post->created_by);
-				DB::table('totalpoints')->where('account_id',$user->accountUser()->id)->increment('value');
-				if($user->accountuser()->points->value < 100)
-				{
-					DB::table('points')->where('account_id',$user->accountUser()->id)->increment('value');
-				}
-				else
-				{
-					if($user->accountuser()->levels->first()->id != 5)
-					{
-						$user = User::find($post->created_by);
-						DB::table('account_level')->where('account_id',$user->accountUser()->id)->increment('level_id');
-						DB::table('points')->where('account_id',$user->accountUser()->id)->update(array('value' => 1));
-					}
-
-				}
-			}
-		}
-
-		return $id;
-
-		$value = Input::get('value');
-
-			if (Input::get('ajax')) {
-			
-
-			$response = array(
-				'value'    => $value = Input::get('value')
-				
-			);
-
-			return Response::json($response);
-		}
-
-
 
 		$user_id = Auth::user()->id;
 		$input = Input::all();
-		$project = Project::find($input['project_id']);
 		$profile_id = User::find($user_id)->profile_id;
 		if(!empty($project->fund_id) | $project->fund_id != 0)
 		{
@@ -97,7 +57,21 @@ class FundController extends \BaseController {
 			$project->fund_id = $fund->id;
 			$project->save();
 		}
-		return Redirect::back()->with('message','Thanks for funding!');
+		
+
+
+		$value = Input::get('value');
+
+			if (Input::get('ajax')) {
+			
+
+			$response = array(
+				'total'    => $fund->total
+				
+			);
+
+			return Response::json($response);
+		}
 
 	}
 

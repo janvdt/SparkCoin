@@ -6,7 +6,7 @@ class Fund extends BaseModel {
 
 	public function projects()
 	{
-		return $this->belongsToMany('Project','project_funds','profile_id','project_id');
+		return $this->belongsToMany('Project','funds_projects','profile_id','project_id');
 	}
 
 	

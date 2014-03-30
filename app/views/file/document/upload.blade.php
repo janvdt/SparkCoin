@@ -34,7 +34,7 @@
 </div>
 @stop
 
-@section('scriptsdocuments')
+@section('scripts')
 // If the browser supports ajax file upload, show the upload button.
 if (window.FormData) {
 	formdata = new FormData();
