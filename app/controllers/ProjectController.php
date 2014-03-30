@@ -38,9 +38,11 @@ class ProjectController extends \BaseController {
 		// Get documents for initial image select.
 		$documents = Document::where('created_by',Auth::user()->id)->orderBy('created_at', 'desc')->take(10)->get();
 		$choose = Document::where('created_by',Auth::user()->id)->lists('title', 'id');
+		$galleries = Gallery::where('created_by',Auth::user()->id)->get();
 		return View::make('projects.create')
 			->with('documents',$documents)
-			->with('documentArray',$choose);
+			->with('documentArray',$choose)
+			->with('galleries',$galleries);
 	}
 
 	/**
@@ -63,6 +65,8 @@ class ProjectController extends \BaseController {
 			$project->zipcode = $input['zipcode'];
 			$project->town = $input['town'];
 			$project->country = $input['country'];
+			$project->imageable_type = 'Gallery';
+			$project->imageable_id = Input::get('gallery');
 
 			$user = User::find(Auth::user()->id);
 			$project->profile_id = $user->profile_id;
