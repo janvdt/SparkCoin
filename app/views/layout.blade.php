@@ -12,9 +12,14 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.js"></script>
 	<script src="/assets/js/bootstrap/js/bootstrap.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.js"></script>
+	<script src="/assets/select2/select2.js"></script>
 	<script src="/assets/js/script.js"></script>
 	<script src="/assets/js/jquery.form.js"></script>
 	<link rel="stylesheet" href="/assets/js/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/select2/select2.css">
+	
+
 	{{-- META SETTINGS --}}
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 
@@ -48,6 +53,11 @@ $(document).ready(function(){
 	@show
 });
 </script>
+
+<script type="text/javascript"> 
+	 $(".chzn-select").chosen();
+</script
+
 </body>
 </html>
 

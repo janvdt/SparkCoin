@@ -35,7 +35,12 @@ class ProjectController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('projects.create');
+		// Get documents for initial image select.
+		$documents = Document::where('created_by',Auth::user()->id)->orderBy('created_at', 'desc')->take(10)->get();
+		$choose = Document::where('created_by',Auth::user()->id)->lists('title', 'id');
+		return View::make('projects.create')
+			->with('documents',$documents)
+			->with('documentArray',$choose);
 	}
 
 	/**
@@ -46,6 +51,7 @@ class ProjectController extends \BaseController {
 	public function store()
 	{
 		$input = Input::all();
+		
 		$validator = Validator::make($input, Project::$rules);
 		if($validator->passes()){
 			$project = New Project;
@@ -65,6 +71,11 @@ class ProjectController extends \BaseController {
 			//$project->expire_date = Carbon::now()->addMonths(1);
 
 			$project->save();
+
+			if (Input::get('source')) {
+			$project->documents()->attach(Input::get('source'));
+		}
+
 			return Redirect::to('projects/'.$project->id)->with('message','Your project was succesfully published!.')->with('project',$project);
 		}
 		else{
@@ -83,12 +94,23 @@ class ProjectController extends \BaseController {
 		$project = Project::find($id);
 		$project->views += 1;
 		$project->save();
+
+
+		if($project->fund_id != 0){
+		$fund_total = Fund::find($project->fund_id)->total;
+		}else
+		{
+			$fund_total = 0;
+		}
+
+
 		if($project->fund_id == 0){
 			$fund_total = 0;
 		}
 		else{
 			$fund_total = Fund::find($project->fund_id)->total;
 		}
+
 		return View::make('projects.show')->with('project', $project)->with('fund_total',$fund_total);
 	}
 

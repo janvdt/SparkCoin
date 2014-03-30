@@ -57,6 +57,13 @@
         </div>
     </div>
 
+    <div class="control-group">
+		<label class="control-label" for="image">Add Documents</label>
+		<div class="controls">
+		{{ Form::select('source[]', $documentArray, '', array('class' => 'chzn-select', 'data-placeholder' => 'Choose source files', 'tabindex' => '4', 'multiple')) }}
+		</div>
+	</div>
+
 
  
 	<div>
@@ -68,3 +75,4 @@
 
 
 @stop
+
