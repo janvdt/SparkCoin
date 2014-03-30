@@ -33,6 +33,19 @@ class Project extends BaseModel {
 		return $this->morphTo();
 	}
 
+	public function getSourceArray()
+	{
+		$documents = array();
+
+		if (count($this->documents)) {
+			foreach ($this->documents as $document) {
+				$documents[] = $document->id;
+			}
+		}
+
+		return $documents;
+	}
+
 
 
 	public function comments()
