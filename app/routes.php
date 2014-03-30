@@ -18,6 +18,7 @@ Route::get('/', function()
 });
 Route::post('signin', 'HomeController@postSignin');
 Route::post('register', 'HomeController@postRegister');
+Route::get('profile/show', 'ProfileController@getDashboard');
 Route::post('images', 'ImageController@index');
 Route::resource('projects', 'ProjectController');
 Route::resource('user', 'UserController');

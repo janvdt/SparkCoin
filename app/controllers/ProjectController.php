@@ -57,6 +57,7 @@ class ProjectController extends \BaseController {
 			$project = New Project;
 			$project->name = $input['name'];
 			$project->description = $input['description'];
+			$project->category = $input['category'];
 			$project->address = $input['address'];
 			$project->zipcode = $input['zipcode'];
 			$project->town = $input['town'];
@@ -94,12 +95,14 @@ class ProjectController extends \BaseController {
 		$project->views += 1;
 		$project->save();
 
+
 		if($project->fund_id != 0){
 		$fund_total = Fund::find($project->fund_id)->total;
 		}else
 		{
 			$fund_total = 0;
 		}
+
 
 		if($project->fund_id == 0){
 			$fund_total = 0;
@@ -144,6 +147,7 @@ class ProjectController extends \BaseController {
 			$project = Project::find($id);
 			$project->name = $input['name'];
 			$project->description = $input['description'];
+			$project->category = $input['category'];
 			$project->address = $input['address'];
 			$project->zipcode = $input['zipcode'];
 			$project->town = $input['town'];

@@ -22,6 +22,16 @@
 		{{Form::textarea('description')}}
 	</div>
 	<div>
+		{{Form::select('category', array('Amusement' => 'Amusement',
+										   'Art' => 'Art', 
+										   'Design' => 'Design',
+										   'Education' => 'Education', 
+										   'Fashion' => 'Fashion',
+										   'Food' => 'Food',  
+										   'Publishing' => 'Publishing',
+										   'Technology' => 'Technology',))}}
+	</div>
+	<div>
 		{{Form::label('address')}}
 		{{Form::text('address')}}
 	</div>	

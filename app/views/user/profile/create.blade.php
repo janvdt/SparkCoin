@@ -14,7 +14,7 @@
 		<div class="login">
 			<h1 class="margin-buffer-bottom">Step 2/2 </h1>
 			<h1 class="margin-buffer margin-buffer-bottom">Biography</h1>
-			<form class="form-horizontal" method="POST" action="{{ URL::action('ProfileController@store') }}">
+			<form class="form-horizontal" method="POST" action="{{ URL::action('ProfileController@store') }}">	
 				<label class=""><h2>Tell Something About yourself!</h2>  </label>
 				<textarea class="" type="text" size="100" name="description" placeholder="Do your thing!" value=""></textarea>
 				<span class="">{{ $errors->first('description') }}</span>
