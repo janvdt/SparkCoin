@@ -9,26 +9,20 @@
 @section('content')
 @include('profile.dashboard.header')
 
-	<div class="yoursparks">
-		<h2>Manage your Sparks</h2>
-		<p>You have {{$profile->spark->value}} Sparkieeez </p>
-	</div>
 	<div class="yourprojects">
-		<h2>Your projects</h2>
 		@if(!empty($projects))
 			@foreach($projects as $project)
-				<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
-				{{$project->name}}
-				{{$project->description}}
+		<div class="project">
+			<div class="img" style="background-image: url({{ asset(''.$project->image->getSize('thumb')->getPathname().'') }})"></div>
+				
+				<h2>{{$project->name}}</h2>
+				<p>{{$project->description}}</p>
+		
+		</div>
 			@endforeach
 		@endif
 	</div>
-	<div class="yourfundings">
-
-	</div>
-	<div class="commentsonyourprojects">
-
-	</div>
+	
 
 
 

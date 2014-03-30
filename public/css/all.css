@@ -220,6 +220,37 @@ table {
 /*
  * Pages --------------------------------------------------------------
  */
+.nav {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  clear: both;
+  z-index: 1000; }
+  .nav ul {
+    font-family: "Oswald", sans-serif;
+    font-size: 18px;
+    height: 60px;
+    border-bottom: 1px solid #ff6600;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto; }
+    .nav ul li {
+      float: left;
+      padding-right: 20px;
+      margin-top: 30px; }
+      .nav ul li a {
+        color: #ff6600;
+        -o-transition: letter-spacing 0.1s ease-out;
+        -ms-transition: letter-spacing 0.1s ease-out;
+        -moz-transition: letter-spacing 0.1s ease-out;
+        -webkit-transition: letter-spacing 0.1s ease-out;
+        transition: letter-spacing 0.1s ease-out; }
+        .nav ul li a:hover {
+          letter-spacing: 1px;
+          text-decoration: none;
+          color: #ff6600; }
+
 body {
   -webkit-font-smoothing: antialiased; }
 
@@ -340,8 +371,6 @@ body {
     width: 200px;
     background-size: cover;
     border-radius: 125px; }
-    .projects .single .img:hover {
-      background-color: #222222; }
 
 .section .alert {
   font-family: "Oswald", sans-serif;
@@ -676,6 +705,53 @@ body {
         color: #222222; }
         .navigation2 ul li a:hover {
           color: #ff6600; }
+
+.yourprojects .project .img {
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+  border-radius: 125px;
+  margin-top: 60px;
+  margin-bottom: 60px; }
+.yourprojects .project h2 {
+  font-family: "Oswald", sans-serif;
+  margin-left: 350px;
+  float: left;
+  font-weight: 500;
+  font-size: 35px; }
+.yourprojects .project p {
+  margin-left: 350px;
+  font-family: "Oswald", sans-serif;
+  float: left;
+  font-weight: 100; }
+
+.textProject {
+  margin-left: 400px;
+  margin-top: 50px; }
+  .textProject h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 40px; }
+  .textProject h3 {
+    font-family: "Oswald", sans-serif; }
+  .textProject p {
+    font-family: "Oswald", sans-serif;
+    font-weight: 100;
+    line-height: 30px; }
+
+.exclusive {
+  margin-top: 30px; }
+
+.row {
+  float: right;
+  margin-top: 80px; }
+
+.comments {
+  clear: both;
+  text-align: center; }
+  .comments textarea {
+    width: 500px; }
 
 /*
  * Models ------------------------------------------------------------

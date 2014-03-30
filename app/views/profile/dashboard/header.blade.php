@@ -1,7 +1,7 @@
-		<h2>Dashboard</h2>
-	<ul>
-		<li><a href ="{{ URL::action('ProfileController@showYours') }}">Your Projects</a></li>
-		
-		<li>Personal Information</li>
-		<li><a href ="{{ URL::action('DatabankController@index') }}">Your Databank</a>
+<div class="nav">
+	<ul class="dashboardHeader">
+		<li><a href ="{{ URL::action('ProfileController@showYours') }}">YOUR PROJECTS</a></li>
+		<li><a href="{{ URL::action('DocumentController@index') }}">MANAGE DOCUMENTS</a></li>
+		<li><a href="{{ URL::action('GalleryController@index') }}">MANAGE GALLERIES</a></li>
 	</ul>
+</div>

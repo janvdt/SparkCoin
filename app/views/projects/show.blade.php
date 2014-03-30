@@ -2,20 +2,37 @@
 
 @include('instance.header')
 
-@section('content')
+<div class="headerimage">
+	<h1>{{$project->name}}</h1>
+</div>
 
+
+@section('content')
+<div class="projects exclusive">
+
+
+	<div class="single">
+		<h1><a href="/projects/{{$project->id}}">{{$project->name}}</a></h1>
+
+		<div class="img" style="background-image: url({{ asset(''.$project->image->getSize('thumb')->getPathname().'') }})"></div>
+
+		<div class="capital"><h3>{{$project->capital}} START CAPITAL</h3></div>
+		<div class="expiredate"><h3>Expires {{date('d F Y', strtotime($project->expire_date))}}</h3></div>
+		<div class="progress-bar {{$project->id}}">
+			<span></span>
+		</div>
+		<br />
+		<br />
+				<button class="btn" data-toggle="modal" data-target="#myModal">
+		  			Fund This project!
+				</button>
+	</div>
+</div>
 <div>
 	<div>
-		<h1>{{$project->name}}</h1>
 
 
 		
-
-
-		<h3>by Bart Moons</h3>
-		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  			Fund This project!
-		</button>
 
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -44,17 +61,13 @@
 			</div>
 		</div>
 		
-	@if($project->image != null)
-		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
-	@endif
 
-		
+	<div class="textProject">
 		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
-		<div>{{$project->description}}</div>
+		<p>{{$project->description}}</p>
 		<h3>{{$fund_total}} sparkcoins</h3>
 		<h3>{{$project->views}} views</h3>
-		<h3>Expires {{date('d F Y', strtotime($project->expire_date))}}</h3>
-		<h5>Documents:</h5>
+	</div>
 		<ul class="unstyled">
 									@foreach($project->documents as $document)
 										
@@ -88,6 +101,7 @@
 				</div>
 	<div>
 	@endif
+	<div class="comments">
 		<h2><?php echo count($project->comments) ?> Comments</h2>
 		<img/>
 		@foreach($project->comments as $comment)
@@ -114,6 +128,7 @@
 		{{Form::close()}}
 
 	</div>
+</div>
 </div>
 @stop
 

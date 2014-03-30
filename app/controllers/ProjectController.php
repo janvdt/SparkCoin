@@ -121,6 +121,8 @@ class ProjectController extends \BaseController {
 			$fund_total = Fund::find($project->fund_id)->total;
 		}
 
+
+
 		return View::make('projects.show')->with('project', $project)->with('fund_total',$fund_total);
 	}
 
