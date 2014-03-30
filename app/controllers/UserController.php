@@ -54,6 +54,14 @@ class UserController extends \BaseController {
 
 		$profile = new Profile;
 
+		$spark = new Spark;
+
+		$spark->value = 100;
+
+		$spark->save();
+
+		$profile->spark_id = $spark->id;
+		
 		$profile->save();
 
 		$user = new User;

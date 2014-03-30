@@ -40,6 +40,7 @@ class ProfileController extends \BaseController {
 		$profileid = User::find($user_id)->profile_id;
 
 		$profile  = Profile::find($profileid);
+		$profile->spark_id = $spark->id;
 		$profile->description = Input::get('description');
 		$profile->image_id = Input::get('image_id');
 		
@@ -59,6 +60,11 @@ class ProfileController extends \BaseController {
 	 */
 	public function show($id)
 	{
+
+	}
+
+	public function getDashboard()
+	{
 		$user = Auth::user();
 		$profile = Profile::find($user->profile_id);
 		$projects = Project::where('profile_id',$profile->id)->take(3)->get();
@@ -67,7 +73,6 @@ class ProfileController extends \BaseController {
 			->with('profile',$profile)
 			->with('user',$user)
 			->with('projects',$projects);
-
 	}
 
 	public function showYours()

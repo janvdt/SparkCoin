@@ -12,11 +12,13 @@
 	</div>
 	<div class="yourprojects">
 		<h2>Your projects</h2>
-		@foreach($projects as $project)
-			<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
-			{{$project->name}}
-			{{$project->description}}
-		@endforeach
+		@if(!empty($projects))
+			@foreach($projects as $project)
+				<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
+				{{$project->name}}
+				{{$project->description}}
+			@endforeach
+		@endif
 	</div>
 	<div class="yourfundings">
 
