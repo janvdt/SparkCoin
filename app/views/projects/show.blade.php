@@ -90,7 +90,7 @@
 		<img/>
 		@foreach($project->comments as $comment)
 			<div><img src="/{{$comment->profile->image->getSize('thumb')->getPathname()}}"/></div>
-			<div>{{$comment->profile->user->firstname}} {{$comment->profile->user->lastname}}</div>
+			<div>{{User::find($comment->user_id)->firstname}} {{User::find($comment->user_id)->lastname}}</div>
 			<div>{{$comment->body}}</div>
 		@endforeach
 		<h3>Add comment</h3>
@@ -119,8 +119,9 @@
 	@parent
 
  // Ajax file upload for the file upload modal.
+ var project_id = {{$project->id}};
 $("#place-fund-form").ajaxForm({
-	data: { 'ajax': 'true' },
+	data: { 'ajax': 'true', 'project_id' : project_id },
 	dataType: 'json',
 	success: function(data) {
 		

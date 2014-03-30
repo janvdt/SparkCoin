@@ -77,6 +77,8 @@ class ProjectController extends \BaseController {
 
 			$project->save();
 
+			DB::insert('insert into profile_project (profile_id, project_id) values (?, ?)', array($user->profile_id, $project->id));
+
 			if (Input::get('source')) {
 			$project->documents()->attach(Input::get('source'));
 		}
