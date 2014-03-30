@@ -16,13 +16,10 @@
 	@foreach($projects as $project)
 	<div class="single">
 		<h1><a href="/projects/{{$project->id}}">{{$project->name}}</a></h1>
-		
-		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
 		<div>{{$project->description}}</div>
 		@if($project->image != NULL)
-		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
+		<img src="{{asset('uploads/11/01_Changes_4.jpg')}}" >
 		@endif
-	
 		@foreach($arrayfunds as $key=>$value)
 		@if($project->id == $key)
 		<h3>{{$value}} fundings</h3>
