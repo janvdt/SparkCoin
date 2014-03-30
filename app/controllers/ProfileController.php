@@ -19,7 +19,7 @@ class ProfileController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('user..profile.create');
+		return View::make('user.profile.create');
 	}
 
 	/**
@@ -29,7 +29,26 @@ class ProfileController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+
+		$spark = new Spark;
+
+		$spark->value = 100;
+
+		$spark->save();
+
+		$user_id = Auth::user()->id;
+		$profileid = User::find($user_id)->profile_id;
+
+		$profile  = Profile::find($profileid);
+		$profile->description = Input::get('description');
+		$profile->image_id = Input::get('image_id');
+		
+		$profile->save();
+
+		
+		return Redirect::to('/projects');
+
+		
 	}
 
 	/**
@@ -40,7 +59,31 @@ class ProfileController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$user = Auth::user();
+		$profile = Profile::find($user->profile_id);
+		$projects = Project::where('profile_id',$profile->id)->take(3)->orderBy('fundings','asc')->get();
+
+		return View::make('profile.show')
+			->with('profile',$profile)
+			->with('user',$user)
+			->with('projects',$projects);
+
+	}
+
+	public function showYours()
+	{
+		$profile_id = Auth::User()->profile_id;
+		$projects = Project::where('profile_id',$profile_id)->get();
+		return View::make('profile.ownprojects')->with('projects', $projects);
+	}
+
+	public function yourProgress()
+	{
+		$profile_id = Auth::User()->profile_id;
+		$profile = Profile::find($profile_id);
+		
+		return View::make('profile.dashboard.managespark')->with('profile',$profile);
+
 	}
 
 	/**

@@ -42,10 +42,12 @@
         <div class="control-group">
             {{ Form::label('image', 'Image') }}
             <div class="controls">
-                @include('file.page.upload')
+                @include('file.image.upload')
             </div>
         </div>
     </div>
+
+
  
 	<div>
 		{{Form::submit("Publish project")}}
@@ -53,4 +55,6 @@
 	</div>
 	{{Form::close()}}
 </div>
+
+
 @stop

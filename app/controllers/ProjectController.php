@@ -9,8 +9,9 @@ class ProjectController extends \BaseController {
 	 */
 	public function index()
 	{
-		$projects = Project::all();
-		return View::make('projects.index')->with('projects',$projects);
+		$projects = Project::orderBy('created_at','DESC')->get();
+		$type = null;
+		return View::make('projects.index')->with('projects',$projects)->with('type',$type);
 	}
 
 	/**
@@ -40,7 +41,14 @@ class ProjectController extends \BaseController {
 			$project->zipcode = $input['zipcode'];
 			$project->town = $input['town'];
 			$project->country = $input['country'];
-			$project->expire_date = Carbon::now()->addMonths(1);
+
+			$user = User::find(Auth::user()->id);
+			$project->profile_id = $user->profile_id;
+
+			$project->image_id = Input::get('image_id') ? Input::get('image_id'): 0;
+
+			//$project->expire_date = Carbon::now()->addMonths(1);
+
 			$project->save();
 			return Redirect::to('projects/'.$project->id)->with('message','Your project was succesfully published!.')->with('project',$project);
 		}
@@ -58,6 +66,16 @@ class ProjectController extends \BaseController {
 	public function show($id)
 	{
 		$project = Project::find($id);
+		$project->views += 1;
+		$project->save();
+		$fund_total = Fund::find($project->fund_id)->total;
+		return View::make('projects.show')->with('project', $project)->with('fund_total',$fund_total);
+	}
+
+	public function showYours()
+	{
+		$profile_id = Auth::User()->profile_id;
+		$project = Project::where('profile_id',$profile_id)->get();
 		return View::make('projects.show')->with('project', $project);
 	}
 
@@ -69,7 +87,8 @@ class ProjectController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$project = Project::find($id);
+		return View::make('projects.edit')->with('project', $project);
 	}
 
 	/**
@@ -80,7 +99,22 @@ class ProjectController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+		$validator = Validator::make($input, Project::$rules);
+		if($validator->passes()){
+			$project = Project::find($id);
+			$project->name = $input['name'];
+			$project->description = $input['description'];
+			$project->address = $input['address'];
+			$project->zipcode = $input['zipcode'];
+			$project->town = $input['town'];
+			$project->country = $input['country'];
+			$project->save();
+			return Redirect::to('projects/'.$id)->with('message','Your project was succesfully edited!.');
+		}
+		else{
+			return Redirect::to('projects/create')->with('message','Please correct the following errors.')->withErrors($validator)->withInput();
+		}
 	}
 
 	/**
@@ -92,6 +126,12 @@ class ProjectController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function sort($type)
+	{
+		$projects = Project::orderBy($type,'DESC')->get();
+		return View::make('projects.index')->with('projects',$projects)->with('type', $type);
 	}
 
 }

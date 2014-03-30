@@ -32,11 +32,14 @@ class UserController extends \BaseController {
 		$validator = Validator::make(
 				Input::all(),
 				array(
+					'ingid' => 'required',
+					'cardid' => 'required',
 					'email' => 'unique:users,email',
 					'firstname'  => 'required',
 					'lastname'  =>'required',
 					'password' => 'confirmed',
 					'password_confirmation'  => 'required', 
+					'cardreadercode' => 'required',
 				)
 			);
 	
@@ -47,6 +50,11 @@ class UserController extends \BaseController {
 					->withErrors($validator);
 			}
 
+
+		$profile = new Profile;
+
+		$profile->save();
+
 		$user = new User;
 
 		$user->email = Input::get('email');
@@ -55,13 +63,25 @@ class UserController extends \BaseController {
 
 		$user->lastname = Input::get('lastname');
 
-		$user->status = 1; 
+		$user->status = 1;
+
+		$user->profile_id = $profile->id; 
 
 		$user->password = Hash::make(Input::get('password'));
 
 		$user->save();
 
-		return View::make('user.profile.create')->with('user',$user);
+		$email = $user->email;
+		$password = Input::get('password');
+
+			if (Auth::attempt(array('email' => $email, 'password' => $password)	))
+			{
+					
+				return View::make('user.profile.create');
+
+			}
+
+		return Redirect::to('/');
 	}
 
 	/**
@@ -108,28 +128,5 @@ class UserController extends \BaseController {
 		//
 	}
 
-	public function viewauthentication()
-	{
-		return View::make('instance.authentication');
-	}
-	public function validateauthentication()
-	{
-		$validator = Validator::make(
-				Input::all(),
-				array(
-					'txtIdentification' => 'required',
-				)
-			);
-	
-			if ($validator->fails())
-			{
-				return Redirect::back()
-					->withInput()
-					->withErrors($validator);
-			}
-
-
-		return View::make('user.create');
-	}
 
 }

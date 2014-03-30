@@ -44,9 +44,9 @@ class ImageController extends BaseController {
 
 		$this->image->type = $file->getExtension();
 		$this->image->title = $file->getBasename('.' . $file->getExtension());
-		$this->image->created_by = Auth::user()->id;
-		$this->image->updated_by = Auth::user()->id;
-
+		$this->image->created_by = "jan";
+		$this->image->updated_by = "jan";
+		
 		$this->image->save();
 
 		// Save the original image size.

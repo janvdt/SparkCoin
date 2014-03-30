@@ -7,17 +7,58 @@
 <div>
 	<div>
 		<h1>{{$project->name}}</h1>
-		<img src="{{$project->image}}"/>
+
+
+		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
+
+
+		<h3>by Bart Moons</h3>
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  			Fund This project!
+		</button>
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+			  <div class="modal-content">
+			    <div class="modal-header">
+			      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			      <h4 class="modal-title" id="myModalLabel">Yaay!!!!</h4>
+			    </div>
+			    <div class="modal-body">
+					{{Form::open(array('action'=>'FundController@postFund', 'method'=>'post','id' => 'place-fund-form', 'class' => 'form-horizontal'))}}
+					{{Form::hidden('project_id',$project->id)}}
+					{{Form::label('value','Value to fund')}}
+					{{Form::text('value')}}
+					<input type="text" id="projectid" class="projectid" name="projectid" value="{{$project->id}}">
+					
+					
+			    </div>
+			    <div class="modal-footer">
+					<button class="btn" data-dismiss="modal">Cancel</button>
+					<input class="btn btn-primary" type="submit" value="Place your sparks!!">
+			    </div>
+				</form>
+			  </div>
+			</div>
+		</div>
+		
+	@if($project->image != null)
+		<img src="/{{ $project->image->getSize('thumb')->getPathname() }}" >
+	@endif
+
+		
 		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
 		<div>{{$project->description}}</div>
-		<h3>{{$project->fundings}} fundings</h3>
+		<h3>{{$fund_total}} sparkcoins</h3>
+		<h3>{{$project->views}} views</h3>
 		<h3>Expires {{date('d F Y', strtotime($project->expire_date))}}</h3>
 	</div>
 	<div>
-		<h2>Comments</h2>
+		<h2><?php echo count($project->comments) ?> Comments</h2>
 		<img/>
 		@foreach($project->comments as $comment)
-			<div>{{$comment->profile_id}}</div>
+			<div><img src="/{{$comment->profile->image->getSize('thumb')->getPathname()}}"/></div>
+			<div>{{$comment->profile->user->firstname}} {{$comment->profile->user->lastname}}</div>
 			<div>{{$comment->body}}</div>
 		@endforeach
 		<h3>Add comment</h3>
@@ -37,6 +78,26 @@
 			{{Form::submit('Post comment')}}
 		</div>
 		{{Form::close()}}
+
 	</div>
 </div>
+@stop
+
+@section('scripts')
+	@parent
+
+ // Ajax file upload for the file upload modal.
+$("#place-fund-form").ajaxForm({
+	data: { 'ajax': 'true' },
+	dataType: 'json',
+	success: function(data) {
+		
+		
+
+		console.log(data);
+
+		$("#place-fund-form").modal('hide');
+	}
+});
+
 @stop

@@ -1,16 +1,30 @@
-<h1>Step 2/3 </h1>
+@extends('layout')
+
+@section('content')
+
+<h1>Step 2/2 </h1>
 
 <h2>Biography</h2>
 	<div class="">
 		<form class="form-horizontal" method="POST" action="{{ URL::action('ProfileController@store') }}">
 			<div class="">
-				<label class="control-label"><h5>Biography</h5>  </label>
+				<label class=""><h5>Tell Something About yourself!</h5>  </label>
 				<div class="">
-					<textarea class="input-xlarge" type="text" size="100" name="biography" placeholder="Biography" value=""></textarea>
-					<span class="help-inline">required</span>
-					<span class="help-inline">{{ $errors->first('biography') }}</span>
+					<textarea class="" type="text" size="100" name="description" placeholder="Do your thing!" value=""></textarea>
+					<span class="">required</span>
+					<span class="">{{ $errors->first('description') }}</span>
 				</div>
 			</div>
+
+			<div class="image">
+          		{{ Form::hidden('image_id','',array('id' => 'selected-image-input')) }}
+        		<div class="">
+            		{{ Form::label('image', 'Image') }}
+           			 <div class="">
+               			 @include('file.profile.upload')
+            		</div>
+        		</div>
+    		</div>
 			
 					
 			<div class="form-actions">
