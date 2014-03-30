@@ -77,6 +77,22 @@
 		column-break-inside: $break;
 	}
 
+		@mixin placeholder-color( $color ) {
+		&::-webkit-input-placeholder { /* WebKit browsers */
+		    color: $color;
+		}
+		&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		    color: $color;
+		}
+		&::-moz-placeholder { /* Mozilla Firefox 19+ */
+		    color: $color;
+		}
+		&:-ms-input-placeholder { /* Internet Explorer 10+ */
+		    color: $color;
+		}
+	}
+
+
 
 /* =========================================================================
  * Global sections & tags
@@ -148,6 +164,36 @@
 	 	.btn {
 	 		outline: none;
 	 		-webkit-appearance: none;
+	 			display: block;
+ 		font-family: $oswald;
+		font-weight: $light;
+		font-size: 20px;
+		color: $white;
+		padding: 10px 15px;
+		background:black;
+		border:0 none;
+		cursor:pointer;
+ 		outline: none;
+ 		-webkit-appearance: none;
+
+ 		@include transition( color .2s ease-out );
+
+ 		&.brackets {
+ 			background: none;
+ 			color: $black;
+ 			font-weight: $regular;
+ 			font-size: $l;
+
+ 			@include transition( letter-spacing .1s ease-out );
+
+ 			&:hover {
+ 				letter-spacing: 3px;
+ 			}
+ 		}
+
+ 		&:hover {
+ 			color: $red;
+ 		}
 
 	 		&:hover {
 	 			
@@ -219,7 +265,7 @@
 	/*
 	 * Pages --------------------------------------------------------------
 	 */
- 		@import "pages/*";
+ 		@import "pages/*.*";
 
 	/*
 	 * Models ------------------------------------------------------------

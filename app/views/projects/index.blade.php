@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div>
+<div class="projects">
 	{{Form::open()}}
 	{{Form::label('sort','Sort by')}}
 	@if($type != null)
@@ -16,7 +16,11 @@
 	@foreach($projects as $project)
 	<div>
 		<h1><a href="/projects/{{$project->id}}">{{$project->name}}</a></h1>
+<<<<<<< HEAD
 		
+=======
+		<img src="{{ asset(''.$project->image->getSize('thumb')->getPathname().'') }}"/>
+>>>>>>> 3e11e7f83a22a39eb599419667ec00d7bfa5fd53
 		<h2>{{$project->address}}, {{$project->zipcode}} - {{$project->town}}, {{$project->country}}</h2>
 		<div>{{$project->description}}</div>
 		@if($project->image != NULL)

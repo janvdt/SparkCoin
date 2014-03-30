@@ -9,7 +9,7 @@ class ProjectController extends \BaseController {
 	 */
 	public function index()
 	{
-		$projects = Project::orderBy('created_at','DESC')->get();
+		$projects = Project::orderBy('created_at','DESC')->take(3)->get();
 		$type = null;
 		$arrayfunds = array();
 		foreach($projects as $project)
@@ -82,12 +82,21 @@ class ProjectController extends \BaseController {
 		$project = Project::find($id);
 		$project->views += 1;
 		$project->save();
+<<<<<<< HEAD
 		if($project->fund_id != 0){
 		$fund_total = Fund::find($project->fund_id)->total;
 		}else
 		{
 			$fund_total = 0;
 		}
+=======
+		if($project->fund_id == 0){
+			$fund_total = 0;
+		}
+		else{
+			$fund_total = Fund::find($project->fund_id)->total;
+		}
+>>>>>>> 3e11e7f83a22a39eb599419667ec00d7bfa5fd53
 		return View::make('projects.show')->with('project', $project)->with('fund_total',$fund_total);
 	}
 
