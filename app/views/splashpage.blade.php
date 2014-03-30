@@ -30,8 +30,10 @@
 		
 				<div class="login">
 				<h1> A <span>SPARK</span> IS ALL IT TAKES.</h1>
-
-					{{ Form::open( array( 'route'	=>'login', 'method'	=>'post' )) }}
+					@if(Session::has('login_message'))
+						<p class="alert">{{ Session::get('login_message') }}</p>
+					@endif
+					{{ Form::open( array( 'action'	=>'HomeController@postSignin', 'method'	=>'post' )) }}
 						
 						{{ Form::text( 'e-mail', '', array('name'=>'email', 'class'=>'txt-input', 'placeholder'=>'E-MAIL') ) }}
 						{{ Form::password( 'username', array('name'=>'password', 'class'=>'txt-input', 'placeholder'=>'PASSWORD') ) }}
@@ -76,17 +78,19 @@
 			<div  class="content register">
 				<div class="registerForm">
 					<h1><span>GET</span> STARTED.</h1>
-					{{ Form::open( array( 'route'	=>'login', 'method'	=>'post' )) }}
+					{{ Form::open( array( 'action'	=>'HomeController@postRegister', 'method'	=>'post' )) }}
 						
-						{{ Form::text( 'e-mail', '', array('name'=>'email', 'class'=>'txt-input', 'placeholder'=>'ING ID') ) }}
-						{{ Form::text( 'e-mail', '', array('name'=>'email', 'class'=>'txt-input', 'placeholder'=>'CARD ID') ) }}
-						{{ Form::text( 'e-mail', '', array('name'=>'email', 'class'=>'txt-input', 'placeholder'=>'E-MAIL') ) }}
-						{{ Form::password( 'username', array('name'=>'password', 'class'=>'txt-input', 'placeholder'=>'PASSWORD') ) }}
-						{{ Form::password( 'username', array('name'=>'password', 'class'=>'txt-input', 'placeholder'=>'VERIFY PASSWORD') ) }}
-						{{ Form::text( 'e-mail', '', array('name'=>'email', 'class'=>'txt-input', 'placeholder'=>'CARD READER CODE') ) }}
+						{{ Form::text( 'id', '', array('name'=>'id', 'class'=>'txt-input', 'placeholder'=>'ING ID') ) }}
+						{{ Form::text( 'card-id', '', array('name'=>'card-id', 'class'=>'txt-input', 'placeholder'=>'CARD ID') ) }}
+						{{ Form::text( 'email', '', array('name'=>'email', 'class'=>'txt-input', 'placeholder'=>'E-MAIL') ) }}
+						{{ Form::password( 'password', array('name'=>'password', 'class'=>'txt-input', 'placeholder'=>'PASSWORD') ) }}
+						{{ Form::password( 'password_confirmation', array('name'=>'password_confirmation', 'class'=>'txt-input', 'placeholder'=>'VERIFY PASSWORD') ) }}
+						{{ Form::text( 'code', '', array('name'=>'code', 'class'=>'txt-input', 'placeholder'=>'CARD READER CODE') ) }}
 
 
-
+						@if(Session::has('register_message'))
+							<p class="alert">{{ Session::get('register_message') }}</p>
+						@endif
 						<br><br>
 
 						{{ Form::submit('CREATE AN ACCOUNT', array('class'=>'btn') ) }}

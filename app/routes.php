@@ -14,20 +14,16 @@
 Route::get('/', function()
 {
 	$HomeController = new HomeController;
-
-
 	return $HomeController->index();
 });
-
-
-
+Route::post('signin', 'HomeController@postSignin');
+Route::post('register', 'HomeController@postRegister');
 Route::post('images', 'ImageController@index');
 Route::resource('projects', 'ProjectController');
 Route::resource('user', 'UserController');
 Route::get('files', 'FileController@index');
 Route::post('files', 'FileController@store');
 Route::delete('files/{id}', 'FileController@destroy');
-
 
 Route::get('user/viewauthentication/', 'UserController@viewauthentication'); 
 Route::post('user/validateauthentication/', 'UserController@validateauthentication');
@@ -45,14 +41,6 @@ Route::resource('user', 'UserController');
 Route::resource('comment', 'CommentController');
 Route::resource('profile', 'ProfileController');
 Route::post('fund/postfund','FundController@postFund');
-
-
-
-
-Route::get('login', array('as' => 'login', function()
-{
-	return View::make('instance.login');
-}));
 
 Route::get('logout', function() {
 	Auth::logout();

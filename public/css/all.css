@@ -223,6 +223,11 @@ table {
 body {
   -webkit-font-smoothing: antialiased; }
 
+.section .alert {
+  font-family: "Oswald", sans-serif;
+  font-weight: 100;
+  color: #ff6600;
+  margin-bottom: 20px; }
 .section .home {
   border: 1px solid #222222;
   height: 100%;
@@ -391,6 +396,47 @@ body {
     margin-bottom: 150px; }
     .content .login h1 span, .content .registerForm h1 span {
       font-weight: 400; }
+  .content .login .margin-buffer-bottom, .content .registerForm .margin-buffer-bottom {
+    margin-bottom: 0px; }
+  .content .login .margin-buffer, .content .registerForm .margin-buffer {
+    margin-top: 20px;
+    font-size: 40px; }
+  .content .login h2, .content .registerForm h2 {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    width: 500px;
+    margin-left: -90px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 100;
+    font-size: 30px;
+    color: white; }
+  .content .login textarea, .content .registerForm textarea {
+    width: 325px;
+    height: 150px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+    border-radius: 0px; }
+  .content .login p, .content .registerForm p {
+    width: 325px;
+    height: 50px;
+    margin-bottom: 5px; }
+    .content .login p #upload-image-btn, .content .registerForm p #upload-image-btn {
+      margin-top: 10px;
+      border-radius: 0px;
+      width: 325px;
+      background-color: #ff6600 !important; }
+  .content .login .buttons, .content .registerForm .buttons {
+    width: 325px;
+    margin-top: 20px; }
+  .content .login a.btn, .content .registerForm a.btn {
+    width: 100px;
+    float: left;
+    border-radius: 0px; }
+  .content .login button.btn, .content .registerForm button.btn {
+    width: 125px;
+    border-radius: 0px;
+    float: right; }
 .content .txt-input {
   border: none;
   border-bottom: 1px solid #222222;
