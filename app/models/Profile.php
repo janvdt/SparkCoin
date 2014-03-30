@@ -24,6 +24,8 @@ class Profile extends BaseModel {
 		return $this->belongsTo('Image');
 	}
 
+	
+
 	public function imageProfile()
 	{
 		return Account::find($this->image_id);
