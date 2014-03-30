@@ -32,21 +32,22 @@ class UserController extends \BaseController {
 		$validator = Validator::make(
 				Input::all(),
 				array(
-					'ingid' => 'required',
+					'id' => 'required',
 					'cardid' => 'required',
 					'email' => 'unique:users,email',
-					'firstname'  => 'required',
-					'lastname'  =>'required',
+					// 'firstname'  => 'required',
+					// 'lastname'  =>'required',
 					'password' => 'confirmed',
 					'password_confirmation'  => 'required', 
-					'cardreadercode' => 'required',
+					'code' => 'required',
 				)
 			);
 	
 			if ($validator->fails())
 			{
-				return Redirect::back()
+				return Redirect::to('/#register')
 					->withInput()
+					->with('register_message','Register unsuccesfull. Please try again.')
 					->withErrors($validator);
 			}
 
@@ -59,9 +60,9 @@ class UserController extends \BaseController {
 
 		$user->email = Input::get('email');
 
-		$user->firstname = Input::get('firstname');
+		$user->firstname = 'Manu';
 
-		$user->lastname = Input::get('lastname');
+		$user->lastname = 'Labarbe';
 
 		$user->status = 1;
 
@@ -77,11 +78,11 @@ class UserController extends \BaseController {
 			if (Auth::attempt(array('email' => $email, 'password' => $password)	))
 			{
 					
-				return View::make('user.profile.create');
+		    return Redirect::to('profile/create');
 
 			}
-
-		return Redirect::to('/');
+		    
+		    return Redirect::to('/#register')->with('register_message', 'Register unsuccesfull, please try again.')->withErrors($validator)->withInput();
 	}
 
 	/**
