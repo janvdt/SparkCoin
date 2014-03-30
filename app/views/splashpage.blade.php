@@ -108,10 +108,37 @@
 	</div>
 {{-- SCRIPTS --}}
 	<!-- @section('scripts') -->
-		{{ HTML::script('http://code.jquery.com/jquery-1.10.2.min.js') }}
-		{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js') }}
-		{{ HTML::script('js/plugins/fullPageJs.js') }}
-		{{ HTML::script('js/plugins/home.js') }}
+	{{ HTML::script('http://code.jquery.com/jquery-1.10.2.min.js') }}
+	{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js') }}
+	{{ HTML::script('js/plugins/fullPageJs.js') }}
+	{{ HTML::script('js/plugins/home.js') }}
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.ajax({
+				dataType: "json",
+				type: "POST",				
+				url: "https://apisandbox.ingdirect.es/openlogin/rest/ticket?apikey=uBrswY63PXAt97uI4ZP5LB3GtPjHTsjq",
+				data: {
+				  "loginDocument": {
+				    "documentType": 0,
+				    "document": "9212545X"
+				  },
+				  "birthday": "01/01/1980"
+				},
+				success: function(ticket){
+					console.log(ticket);
+				},
+				error: function(msg){
+					console.log(msg);
+				},
+				beforeSend : setHeader
+			});
+		});
+		function setHeader(xhr) {
+	        xhr.setRequestHeader('application/json', 'content-type');
+	      }
+	</script>
 
 	<!-- @show -->
 </body>
