@@ -54,7 +54,37 @@
 		<h3>{{$fund_total}} sparkcoins</h3>
 		<h3>{{$project->views}} views</h3>
 		<h3>Expires {{date('d F Y', strtotime($project->expire_date))}}</h3>
+		<h5>Documents:</h5>
+		<ul class="unstyled">
+									@foreach($project->documents as $document)
+										
+											
+												
+											
+											<li><a href="{{$document->path}}/{{$document->name}}">{{$document->title}}</a></li>
+										
+									@endforeach
+								</ul>
 	</div>
+	<div class="row">
+					<div class="span8">
+						<div id="myCarousel" class="carousel slide">
+							<div class="carousel-inner">
+								@foreach($project->imageable->images as $key => $image)
+									@if (! $key)
+										<div class="item active offset1">
+									@else
+										<div class="item offset1">
+									@endif
+									<img class="avatar img-polaroid" src="/{{ $image->getSize('medium')->getPathname() }}" alt="">
+									</div>
+								@endforeach
+							</div>
+							<a class="left carousel-control" href="#myCarousel" data-slide="prev" class="pull-left">‹</a>
+							<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+						</div>
+					</div>
+				</div>
 	<div>
 		<h2><?php echo count($project->comments) ?> Comments</h2>
 		<img/>

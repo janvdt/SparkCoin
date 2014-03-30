@@ -47,12 +47,24 @@ class FundController extends \BaseController {
 			$fund = Fund::find($project->fund_id);
 			$fund->total += $input['value'];
 			$fund->save();
+			if($fund->total*100 >= $project->capital)
+			{
+				$backers = DB::select('select * from users where project_id = ?', array($project_id));
+				die($backers);
+			}
+
+			
 			$project->funds()->attach($fund->id, array('project_id'=>$input['project_id'],'profile_id'=>$profile_id,'fund_id'=>$fund->id));
 		}
 		else{
 			$fund = New Fund;
 			$fund->total = $input['value'];
 			$fund->save();
+			if($fund->total*100 >= $project->capital)
+			{
+				$backers = DB::select('select * from users where project_id = ?', array($project_id));
+				die($backers);
+			}
 			$project->funds()->attach($fund->id, array('project_id'=>$input['project_id'],'profile_id'=>$profile_id,'fund_id'=>$fund->id));
 			$project->fund_id = $fund->id;
 			$project->save();

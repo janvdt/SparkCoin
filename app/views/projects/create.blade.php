@@ -22,6 +22,7 @@
 		{{Form::textarea('description')}}
 	</div>
 	<div>
+		{{Form::label('category')}}
 		{{Form::select('category', array('Amusement' => 'Amusement',
 										   'Art' => 'Art', 
 										   'Design' => 'Design',
@@ -32,9 +33,13 @@
 										   'Technology' => 'Technology',))}}
 	</div>
 	<div>
+		{{Form::label('capital','Starting Capital needed')}}
+		{{Form::text('capital')}}
+	</div>
+	<div>
 		{{Form::label('address')}}
 		{{Form::text('address')}}
-	</div>	
+	</div>
 	<div>
 		{{Form::label('zipcode')}}
 		{{Form::text('zipcode')}}
@@ -61,6 +66,17 @@
 		<label class="control-label" for="image">Add Documents</label>
 		<div class="controls">
 		{{ Form::select('source[]', $documentArray, '', array('class' => 'chzn-select', 'data-placeholder' => 'Choose source files', 'tabindex' => '4', 'multiple')) }}
+		</div>
+	</div>
+
+	<div class="">
+		<label class="" for="inputPageTitle">Choose gallery</label>
+		<div class="">
+			<select name="gallery">
+				@foreach($galleries as $gallery)
+					<option value='{{$gallery->id}}'>{{$gallery->title}}</option>
+				@endforeach
+			</select>
 		</div>
 	</div>
 
