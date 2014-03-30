@@ -1,0 +1,42 @@
+.nav{
+
+	position:relative;
+	width:100%;
+	height:40px;
+	background-color:white;
+	clear:both;
+	z-index:1000;
+		
+		ul{
+			font-family:$oswald;
+			font-size:18px;
+			height:60px;
+			border-bottom: 1px solid $orange;
+			width:90%;
+			margin-left: auto;
+			margin-right:auto;
+
+
+			li{
+				float:left;
+				padding-right: 20px;
+				margin-top: 30px;
+
+				a{
+					color: $orange;
+								
+					@include transition( letter-spacing .1s ease-out );
+
+					 &:hover {
+					 		letter-spacing: 1px;
+					 		text-decoration: none;
+					 		color:$orange;
+					 		}
+
+					
+				}
+
+			}
+		}
+	
+}
