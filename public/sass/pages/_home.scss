@@ -2,6 +2,24 @@ body{
 	-webkit-font-smoothing: antialiased;
 
 }
+.dashboard{
+	background: url(../img/dashboard/clouds_02.jpg) no-repeat;
+	height:100%;
+	h1{	
+		text-align: center;
+		font-family: $oswald;
+		font-weight:$thin;
+		margin-left:85px;
+		color: white;
+		font-size: $xl;
+		margin-bottom: 0px;
+		padding-top:100px;
+		text-transform: uppercase;
+		span{
+			font-weight:$regular;
+		}
+	}
+}
 .progress-bar{
 	height:3px;
 	background-color: #a1a1a1;
@@ -12,6 +30,7 @@ body{
 		background-color: $orange;
 		height:3px;
 		position: absolute;
+		max-width: 100%;
 	}
 }
 .projects{
