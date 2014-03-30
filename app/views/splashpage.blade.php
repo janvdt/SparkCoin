@@ -108,10 +108,10 @@
 	</div>
 {{-- SCRIPTS --}}
 	<!-- @section('scripts') -->
-		{{ HTML::script('http://code.jquery.com/jquery-1.10.2.min.js') }}
-		{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js') }}
-		{{ HTML::script('js/plugins/fullPageJs.js') }}
-		{{ HTML::script('js/plugins/home.js') }}
+	{{ HTML::script('http://code.jquery.com/jquery-1.10.2.min.js') }}
+	{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js') }}
+	{{ HTML::script('js/plugins/fullPageJs.js') }}
+	{{ HTML::script('js/plugins/home.js') }}
 
 	<!-- @show -->
 </body>

@@ -39,6 +39,7 @@ class CommentController extends \BaseController {
 			$comment->parent = 0;
 			$comment->profile_id = $profile_id;
 			$comment->body = $input['body'];
+			$comment->user_id = Auth::user()->id;
 			$comment->save();
 			return Redirect::to('projects/'.$comment->project_id)->with('message','Your comment was posted!.');
 		}

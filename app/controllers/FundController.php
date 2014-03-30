@@ -5,6 +5,8 @@ class FundController extends \BaseController {
 	public function postFund()
 	{
 
+				$project_id = Input::all();
+				
 		$validator = Validator::make(
 				Input::all(),
 				array(
@@ -28,6 +30,7 @@ class FundController extends \BaseController {
 
 		$project = Project::find(Input::get('projectid'));
 
+		
 
 		
 
@@ -49,8 +52,14 @@ class FundController extends \BaseController {
 			$fund->save();
 			if($fund->total*100 >= $project->capital)
 			{
-				$backers = DB::select('select * from users where project_id = ?', array($project_id));
-				die($backers);
+				$backers = DB::select('select profile_id from profile_project where project_id = ?', array($project->id));
+				foreach($backers as $backer)
+				{
+					$profile_id = $backer->profile_id;
+					DB::table('profile')->where('id', $profile_id)->increment('succesfull_projects');
+				}
+				
+				
 			}
 
 			
@@ -62,8 +71,13 @@ class FundController extends \BaseController {
 			$fund->save();
 			if($fund->total*100 >= $project->capital)
 			{
-				$backers = DB::select('select * from users where project_id = ?', array($project_id));
-				die($backers);
+				
+				$backers = DB::select('select profile_id from profile_project where project_id = ?', array($project->id));
+				foreach($backers as $backer)
+				{
+					$profile_id = $backer->profile_id;
+					DB::table('profile')->where('id', $profile_id)->increment('succesfull_projects');
+				}
 			}
 			$project->funds()->attach($fund->id, array('project_id'=>$input['project_id'],'profile_id'=>$profile_id,'fund_id'=>$fund->id));
 			$project->fund_id = $fund->id;

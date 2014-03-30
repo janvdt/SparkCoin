@@ -1,9 +1,11 @@
 @extends('layout')
 
 @include('instance.header')
-
+<div class="dashboard">
+	<h1>Good morning, <span>{{$user->firstname}}</span></h1>
+	<img src="">
+</div>
 @section('content')
-
 @include('profile.dashboard.header')
 
 	<div class="yoursparks">

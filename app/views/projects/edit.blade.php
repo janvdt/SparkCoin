@@ -1,7 +1,6 @@
 @extends('layout')
 
 @include('instance.header')
-
 @section('content')
 <div>
 	<h1>Edit project</h1>
