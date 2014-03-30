@@ -68,9 +68,11 @@ class UserController extends \BaseController {
 
 		$user->email = Input::get('email');
 
-		$user->firstname = 'Manu';
-
-		$user->lastname = 'Labarbe';
+		//Here we Fetch the data because we couldn't get a connection with the API ERROR 405
+		$json = file_get_contents('customer.json');
+		$data = json_decode($json, TRUE);
+		$user->firstname = $data['name'];
+		$user->lastname = $data['firstSurname'];
 
 		$user->status = 1;
 

@@ -1,6 +1,7 @@
 @extends('layout')
 
 @include('instance.header')
+
 <div class="headerimage">
 	<h1>MANAGE YOUR <span>IDEAS.</span></h1>
 </div>

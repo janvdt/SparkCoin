@@ -21,6 +21,7 @@ class HomeController extends BaseController {
 
 	public function postRegister()
 	{
+		
 		$rules = array(
     		'email'=>'required|email|unique:users',
     		'password'=>'required|between:6,12|confirmed',
@@ -28,9 +29,11 @@ class HomeController extends BaseController {
 		);
 		$validator = Validator::make(Input::all(), $rules);
 		if ($validator->passes()) {
+
 		    $user = new User;
 		    $user->email = Input::get('email');
 		    $user->password = Hash::make(Input::get('password'));
+		    
 		    $user->save();
 		    $password = $user->password;
 		    if (Auth::attempt(array('email'=> $user->email, 'password'=> $password))) {
