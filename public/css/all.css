@@ -128,11 +128,11 @@ table {
  * =========================================================================
  */
 ::selection {
-  background: #fc1c3e;
+  background: #ff6600;
   /* Safari */ }
 
 ::-moz-selection {
-  background: #fc1c3e;
+  background: #ff6600;
   /* Firefox */ }
 
 /*
@@ -146,7 +146,37 @@ table {
  */
 .btn {
   outline: none;
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+  display: block;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  color: white;
+  padding: 10px 15px;
+  background: black;
+  border: 0 none;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -o-transition: color 0.2s ease-out;
+  -ms-transition: color 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out;
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out; }
+  .btn.brackets {
+    background: none;
+    color: #222222;
+    font-weight: 400;
+    font-size: 40px;
+    -o-transition: letter-spacing 0.1s ease-out;
+    -ms-transition: letter-spacing 0.1s ease-out;
+    -moz-transition: letter-spacing 0.1s ease-out;
+    -webkit-transition: letter-spacing 0.1s ease-out;
+    transition: letter-spacing 0.1s ease-out; }
+    .btn.brackets:hover {
+      letter-spacing: 3px; }
+  .btn:hover {
+    color: #ff6600; }
 
 .txt-input {
   outline: none;
@@ -190,9 +220,117 @@ table {
 /*
  * Pages --------------------------------------------------------------
  */
+body {
+  -webkit-font-smoothing: antialiased; }
+
+.section .home {
+  border: 1px solid #222222;
+  height: 100%;
+  background: url(../img/splashscreen/background_02.jpg);
+  background-size: cover; }
+.section .info {
+  border: 1px solid #222222;
+  height: 100%;
+  background: url(../img/splashscreen/background_04.jpg);
+  background-size: cover; }
+  .section .info h1 {
+    width: 500px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 100;
+    margin-top: 100px;
+    margin-left: 85px;
+    color: white;
+    font-size: 50px;
+    margin-bottom: 0px; }
+    .section .info h1 span {
+      font-weight: 400; }
+  .section .info .infocontent {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 100px; }
+    .section .info .infocontent .images img {
+      padding: 0 70px 0 70px; }
+    .section .info .infocontent .images .arrowRight {
+      position: relative;
+      top: -25px; }
+    .section .info .infocontent .text {
+      margin-top: 80px; }
+      .section .info .infocontent .text h3 {
+        float: left;
+        width: 250px;
+        font-family: "Oswald", sans-serif;
+        color: white;
+        font-weight: 100;
+        line-height: 35px;
+        font-size: 20px;
+        text-align: center; }
+      .section .info .infocontent .text .middle {
+        padding-left: 137px;
+        padding-right: 137px; }
+.section .register {
+  border: 1px solid #222222;
+  height: 100%;
+  background: url(../img/splashscreen/background_06.jpg);
+  background-size: cover; }
+  .section .register .registerForm {
+    margin: 0;
+    margin-left: 80px; }
+    .section .register .registerForm h1 {
+      margin-top: 40%;
+      margin-bottom: 50px;
+      font-size: 35px;
+      text-align: left;
+      margin-left: 8px; }
+  .section .register .cardReader {
+    float: right;
+    margin-top: -500px;
+    margin-right: 80px; }
+    .section .register .cardReader h3 {
+      font-family: "Oswald", sans-serif;
+      color: white;
+      font-size: 30px;
+      font-weight: 100;
+      width: 250px;
+      margin-left: 230px;
+      margin-bottom: 80px; }
+      .section .register .cardReader h3 span {
+        font-weight: 500; }
+    .section .register .cardReader .reader {
+      background: url(../img/splashscreen/cardReader.png) no-repeat;
+      background-size: contain;
+      width: 500px;
+      height: 300px; }
+  .section .register .txt-input {
+    margin-top: 0;
+    font-size: 17px;
+    width: 250px; }
+  .section .register .btn {
+    width: 250px; }
+
 .navigation {
+  position: fixed;
   width: 100%;
-  height: 80px; }
+  height: 80px;
+  background-color: white;
+  clear: both;
+  z-index: 1000; }
+  .navigation .logo {
+    margin-left: 30px;
+    margin-top: 8px;
+    width: 40px;
+    height: 70px;
+    float: left;
+    background: url(../img/splashscreen/logo.png) no-repeat;
+    background-size: contain; }
+    .navigation .logo h1 {
+      font-family: "Oswald", sans-serif;
+      font-weight: 700;
+      margin-left: 50px;
+      font-size: 40px;
+      letter-spacing: -3px;
+      margin-top: 15px; }
   .navigation ul {
     float: right; }
     .navigation ul li {
@@ -201,25 +339,128 @@ table {
       padding-right: 30px;
       vertical-align: middle;
       margin-top: 30px; }
+      .navigation ul li .triangle {
+        opacity: 0.7;
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid black;
+        display: none; }
       .navigation ul li a {
+        position: relative;
         text-decoration: none;
-        color: #222222;
         font-family: "Oswald", sans-serif;
-        font-size: 25px; }
+        font-size: 25px;
+        color: #222222; }
         .navigation ul li a:hover {
           color: #ff6600; }
+    .navigation ul .active a {
+      color: #ff6600; }
+    .navigation ul .active .triangle {
+      display: block;
+      margin-left: 30px; }
+    .navigation ul .homelink .triangle {
+      margin-left: 22px; }
+    .navigation ul .infolink .triangle {
+      margin-left: 15px; }
+    .navigation ul .registerlink .triangle {
+      margin-left: 40px; }
 
-.content {
-  border: 1px solid #222222;
-  height: 100%; }
-  .content h1 {
-    text-align: center;
+.content .center {
+  margin-left: auto;
+  margin-right: auto; }
+.content .login, .content .registerForm {
+  text-align: center;
+  width: 300px;
+  margin-top: 00px;
+  margin-left: auto;
+  margin-right: auto; }
+  .content .login span, .content .registerForm span {
+    font-weight: 300; }
+  .content .login h1, .content .registerForm h1 {
+    width: 500px;
     font-family: "Oswald", sans-serif;
-    color: white;
     font-weight: 100;
-    font-size: 50px; }
-    .content h1 span {
-      font-weight: 300; }
+    margin-top: 200px;
+    margin-left: -90px;
+    color: white;
+    font-size: 50px;
+    margin-bottom: 150px; }
+    .content .login h1 span, .content .registerForm h1 span {
+      font-weight: 400; }
+.content .txt-input {
+  border: none;
+  border-bottom: 1px solid #222222;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 1%;
+  text-align: center;
+  width: 290px;
+  outline: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border-color: white;
+  color: white;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  -o-transition: border-color 0.2s ease-out, letter-spacing 0.1s ease-out;
+  -ms-transition: border-color 0.2s ease-out, letter-spacing 0.1s ease-out;
+  -moz-transition: border-color 0.2s ease-out, letter-spacing 0.1s ease-out;
+  -webkit-transition: border-color 0.2s ease-out, letter-spacing 0.1s ease-out;
+  transition: border-color 0.2s ease-out, letter-spacing 0.1s ease-out; }
+  .content .txt-input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: white; }
+  .content .txt-input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: white; }
+  .content .txt-input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: white; }
+  .content .txt-input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: white; }
+  .content .txt-input:focus {
+    outline: none;
+    border-color: #ff6600 !important;
+    letter-spacing: 5px; }
+.content .btn {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px; }
+
+.arrowBtnDown {
+  background: url("../img/splashscreen/arrow.png") no-repeat center center;
+  background-size: cover;
+  bottom: 5%;
+  cursor: pointer;
+  height: 50px;
+  left: 49%;
+  position: absolute;
+  width: 50px;
+  -o-transition: bottom 0.2s ease-out;
+  -ms-transition: bottom 0.2s ease-out;
+  -moz-transition: bottom 0.2s ease-out;
+  -webkit-transition: bottom 0.2s ease-out;
+  transition: bottom 0.2s ease-out; }
+  .arrowBtnDown:hover {
+    bottom: 4%; }
+
+.up {
+  background: url("../img/splashscreen/arrowUp.png") no-repeat center center;
+  background-size: cover;
+  -o-transition: bottom 0.2s ease-out;
+  -ms-transition: bottom 0.2s ease-out;
+  -moz-transition: bottom 0.2s ease-out;
+  -webkit-transition: bottom 0.2s ease-out;
+  transition: bottom 0.2s ease-out; }
+  .up:hover {
+    bottom: 6%; }
 
 /*
  * Models ------------------------------------------------------------
