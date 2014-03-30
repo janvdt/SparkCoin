@@ -78,10 +78,10 @@
 			<div  class="content register">
 				<div class="registerForm">
 					<h1><span>GET</span> STARTED.</h1>
-					{{ Form::open( array( 'action'	=>'HomeController@postRegister', 'method'	=>'post' )) }}
+					{{ Form::open( array( 'action'	=>'UserController@store', 'method'	=>'post' )) }}
 						
 						{{ Form::text( 'id', '', array('name'=>'id', 'class'=>'txt-input', 'placeholder'=>'ING ID') ) }}
-						{{ Form::text( 'card-id', '', array('name'=>'card-id', 'class'=>'txt-input', 'placeholder'=>'CARD ID') ) }}
+						{{ Form::text( 'cardid', '', array('name'=>'cardid', 'class'=>'txt-input', 'placeholder'=>'CARD ID') ) }}
 						{{ Form::text( 'email', '', array('name'=>'email', 'class'=>'txt-input', 'placeholder'=>'E-MAIL') ) }}
 						{{ Form::password( 'password', array('name'=>'password', 'class'=>'txt-input', 'placeholder'=>'PASSWORD') ) }}
 						{{ Form::password( 'password_confirmation', array('name'=>'password_confirmation', 'class'=>'txt-input', 'placeholder'=>'VERIFY PASSWORD') ) }}
